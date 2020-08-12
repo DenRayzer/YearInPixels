@@ -21,8 +21,18 @@ class SensitiveDataService {
             try Locksmith.saveData(data: [KeychainKeys.accessTokenKey: token],
                 forUserAccount: KeychainKeys.userAccountKey)
         } catch {
+
             print("Unable to save data")
+
+            do {
+                try Locksmith.updateData(data: [KeychainKeys.accessTokenKey: token],
+                forUserAccount: KeychainKeys.userAccountKey)
+            } catch {
+print("Unable to update data")
+            }
+
         }
+
     }
 
     func getToken() -> String? {

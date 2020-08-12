@@ -14,7 +14,9 @@ struct AutorizeAnswer: Codable {
 }
 
 struct YearModel: Codable {
-    var year: Int
+    var id: String
+    var uid: String
+    var year: String
     var jan: String
     var feb: String
     var mar: String
@@ -27,4 +29,6 @@ struct YearModel: Codable {
     var oct: String
     var nov: String
     var dec: String
+
+
 }
