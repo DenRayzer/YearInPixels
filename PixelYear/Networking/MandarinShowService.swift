@@ -12,51 +12,34 @@ fileprivate enum MandarinShowServiceKeys {
     static let host = "https://mandarinshow.ru/api/app-pixels/year/"
 }
 
-/*
- let task = session.dataTask(with: request, completionHandler: { (data: Data?,
- response: URLResponse?,
- error: Error?) -> Void in
- do {
- let answer = try JSONDecoder().decode(AutorizeAnswer.self, from: data!)
- token = answer.token
+class MandarinShowService: Service {
 
- } catch {
- print("JSON error: \(error.localizedDescription)")
- }
- semaphore.signal()
- })
 
- task.resume()
- **/
 
-class MandarinShowService {
-    func getYears(year: Int) -> [YearModel]? {
-
+    func getYear(year: Int) -> YearModel? {
+        let semaphore = DispatchSemaphore(value: 0)
         guard let url = NetworkHelper.prepareUrl(with: MandarinShowServiceKeys.host,
-                                                 for: "\(year)/") else { return nil }
+            for: "\(year)/") else { return nil }
         guard let request = getYearsRequest(url: url) else { return nil }
         let session = URLSession.shared
         var answer: [YearModel]?
         let task = session.dataTask(with: request) {
             data, response, error in
             do {
-           //     print(response as Any)
-                if let json = try? JSONSerialization.jsonObject(with: data!, options: []) {
-  print(json)
-                }
-
+                if (try? JSONSerialization.jsonObject(with: data!, options: [])) != nil { /*  print(json) */ }
                 answer = try JSONDecoder().decode([YearModel].self, from: data!)
-
-
- print("AYE     \(answer![0].year)")
             } catch {
-                 print("JSON error: \(error.localizedDescription)")
+                print("JSON error: \(error.localizedDescription)")
             }
+            semaphore.signal()
         }
-        task.resume()
-        return answer
 
+        task.resume()
+        _ = semaphore.wait(timeout: .distantFuture)
+
+        return answer?[0]
     }
+
     func getYearsRequest(url: URL) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -64,5 +47,7 @@ class MandarinShowService {
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }
-    
+
+    func setDay() { }
+
 }

@@ -21,6 +21,8 @@
 		6E50AB7D24C8DB920093FEAD /* PixelYear.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7B24C8DB920093FEAD /* PixelYear.xcdatamodeld */; };
 		6E50AB7F24C8DB970093FEAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB7E24C8DB970093FEAD /* Assets.xcassets */; };
 		6E50AB8224C8DB970093FEAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB8024C8DB970093FEAD /* LaunchScreen.storyboard */; };
+		6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E655B6124E50E2300C336D0 /* YearPresenter.swift */; };
+		6E655B6524E50EA800C336D0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E655B6424E50EA800C336D0 /* Service.swift */; };
 		6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE324DC1514006D962F /* SensitiveDataService.swift */; };
 		6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE524DD5FAE006D962F /* Extention.swift */; };
 		6E74FDE924DD737C006D962F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE824DD737C006D962F /* Model.swift */; };
@@ -52,6 +54,8 @@
 		6E50AB7E24C8DB970093FEAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E50AB8124C8DB970093FEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E50AB8324C8DB970093FEAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E655B6124E50E2300C336D0 /* YearPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPresenter.swift; sourceTree = "<group>"; };
+		6E655B6424E50EA800C336D0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		6E74FDE324DC1514006D962F /* SensitiveDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveDataService.swift; sourceTree = "<group>"; };
 		6E74FDE524DD5FAE006D962F /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		6E74FDE824DD737C006D962F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */,
 				6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */,
 				6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */,
+				6E655B6124E50E2300C336D0 /* YearPresenter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -136,6 +141,8 @@
 		6E50AB7124C8DB920093FEAD /* PixelYear */ = {
 			isa = PBXGroup;
 			children = (
+				6E655B6624E520E900C336D0 /* Model */,
+				6E655B6324E50E7D00C336D0 /* Networking */,
 				6E2A2F6224E1849300B62654 /* View */,
 				6E74FDE724DD71ED006D962F /* Login */,
 				6E19DEBC24D17D280036DBD9 /* Storyboards */,
@@ -150,18 +157,33 @@
 			path = PixelYear;
 			sourceTree = "<group>";
 		};
+		6E655B6324E50E7D00C336D0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */,
+				6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */,
+				6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */,
+				6E655B6424E50EA800C336D0 /* Service.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		6E655B6624E520E900C336D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6E2A2F5E24E17C0F00B62654 /* Year.swift */,
+				6E2A2F6024E17C8200B62654 /* Day.swift */,
+				6E74FDE824DD737C006D962F /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6E74FDE724DD71ED006D962F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6E74FDE824DD737C006D962F /* Model.swift */,
 				6E74FDE324DC1514006D962F /* SensitiveDataService.swift */,
 				6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */,
 				6ED142B124D41366000DD2FC /* WebViewController.swift */,
-				6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */,
-				6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */,
-				6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */,
-				6E2A2F5E24E17C0F00B62654 /* Year.swift */,
-				6E2A2F6024E17C8200B62654 /* Day.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -293,12 +315,14 @@
 				6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */,
 				6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */,
 				6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */,
+				6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */,
 				6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */,
 				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
 				6E74FDE924DD737C006D962F /* Model.swift in Sources */,
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6E19DEFB24D2F7680036DBD9 /* MandarinShowLoginService.swift in Sources */,
 				6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */,
+				6E655B6524E50EA800C336D0 /* Service.swift in Sources */,
 				6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */,
 				6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */,
 			);

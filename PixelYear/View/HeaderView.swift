@@ -9,8 +9,8 @@
 import UIKit
 
 protocol HeaderViewDelegate: class {
-    func didTapNextMonth()
-    func didTapPreviousMonth()
+    func didTapNext()
+    func didTapPrevious()
 }
 
 struct HeaderViewAppearance {
@@ -28,54 +28,34 @@ struct HeaderViewAppearance {
 }
 
 class HeaderView: UIView {
-    public var appearance = HeaderViewAppearance()
-    private let monthLabel = UILabel()
-    private let previousButton = UIButton()
-    private let nextButton = UIButton()
-
-
     public weak var delegate: HeaderViewDelegate?
+    @IBOutlet var yearButton: UIButton!
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
-
         setupView()
     }
+    
+    @IBAction func previousButtonAction(_ sender: Any) {
+        print("prev")
+        delegate?.didTapPrevious()
+    }
+    @IBAction func nextButtonAction(_ sender: Any) {
+        print("next")
+        delegate?.didTapNext()
+    }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func updateYearButton(year: Int) {
+        yearButton.setTitle(String(year), for: .normal)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     private func setupView() {
-        subviews.forEach { $0.removeFromSuperview() }
-
         backgroundColor = .white
-
-        monthLabel.textAlignment = .center
-        monthLabel.textColor = appearance.monthTextColor
-
-        previousButton.setImage(appearance.previousButtonImage, for: .normal)
-        previousButton.addTarget(self, action: #selector(didTapPrevious(_:)), for: .touchUpInside)
-
-        nextButton.setImage(appearance.nextButtonImage, for: .normal)
-        nextButton.addTarget(self, action: #selector(didTapNext(_:)), for: .touchUpInside)
-
-        addSubview(monthLabel)
-        addSubview(previousButton)
-        addSubview(nextButton)
-
-        layoutSubviews()
-
     }
 
-    @objc
-    private func didTapNext(_ sender: UIButton) {
-        delegate?.didTapNextMonth()
-    }
-
-    @objc
-    private func didTapPrevious(_ sender: UIButton) {
-        delegate?.didTapPreviousMonth()
-    }
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 class YearCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
+    var year: Year!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,12 +19,21 @@ class YearCollectionViewCell: UICollectionViewCell {
     }
 
     func setUpCollectionViewItemSize() {
+        let interItemSpacing: CGFloat = 2
+        let rowSpacing: CGFloat = 1
+        let width = (collectionView.frame.width - (12 * interItemSpacing)) / 13
+        print("width   \(width)")
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 30, height: 30)
+        layout.itemSize = CGSize(width: width, height: width)
         layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
-        collectionView.collectionViewLayout = layout
+        layout.sectionInset = .zero
+        layout.minimumLineSpacing = rowSpacing
+        layout.minimumInteritemSpacing = interItemSpacing
+        layout.minimumLineSpacing = collectionView.frame.width * 0.1 / 11
+        collectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    func setYear(year: Year) {
+        self.year = year
     }
 
     func setupCollectionView() {
@@ -34,6 +44,7 @@ class YearCollectionViewCell: UICollectionViewCell {
     }
 
 }
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension YearCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         365
@@ -41,6 +52,10 @@ extension YearCollectionViewCell: UICollectionViewDataSource, UICollectionViewDe
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
+
+        if (indexPath.row == 1) || (indexPath.row == 2) {
+            cell.backgroundColor = .black
+        }
         return cell
     }
 

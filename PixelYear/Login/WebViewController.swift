@@ -58,7 +58,7 @@ extension WebViewController: WKNavigationDelegate {
         decidePolicyFor navigationAction: WKNavigationAction,
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-        if (navigationAction.navigationType == .linkActivated){
+        if (navigationAction.navigationType == .linkActivated) {
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
@@ -77,11 +77,10 @@ extension WebViewController: WKNavigationDelegate {
                     print("ретёрнуло 2")
                     return
                 }
-            //    print("webviewtoken:  " + token)
                 SensitiveDataService.saveAccessToken(token: token)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as UIViewController
-                   vc.modalPresentationStyle = .fullScreen
+                vc.modalPresentationStyle = .fullScreen
                 present(vc, animated: true, completion: nil)
             }
         }

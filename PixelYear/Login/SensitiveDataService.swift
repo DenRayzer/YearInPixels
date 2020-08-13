@@ -16,28 +16,28 @@ enum KeychainKeys {
 
 class SensitiveDataService {
 
-   static func saveAccessToken(token: String) {
+    static func saveAccessToken(token: String) {
         do {
             try Locksmith.saveData(data: [KeychainKeys.accessTokenKey: token],
                 forUserAccount: KeychainKeys.userAccountKey)
         } catch {
-
             print("Unable to save data")
-
             do {
                 try Locksmith.updateData(data: [KeychainKeys.accessTokenKey: token],
-                forUserAccount: KeychainKeys.userAccountKey)
+                    forUserAccount: KeychainKeys.userAccountKey)
             } catch {
-print("Unable to update data")
+                print("Unable to update data")
             }
-
         }
-
     }
 
     func getToken() -> String? {
-        let userDataDictionary = Locksmith.loadDataForUserAccount(userAccount: KeychainKeys.userAccountKey)
-        return userDataDictionary?[KeychainKeys.accessTokenKey] as? String
+        guard let userDataDictionary = Locksmith.loadDataForUserAccount(userAccount: KeychainKeys.userAccountKey)
+            else {
+                print ("no token")
+                return nil
+        }
+        return userDataDictionary[KeychainKeys.accessTokenKey] as? String
     }
 
 }

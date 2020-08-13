@@ -7,7 +7,13 @@
 //
 
 import Foundation
+
 struct Year {
     let year: Int
-    var months: [String]
+    var months: [[Int]]
+
+    init(year: Int, months: [[Int]] = []) {
+        self.year = year
+        self.months = months
+    }
 }

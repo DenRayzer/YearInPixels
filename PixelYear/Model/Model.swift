@@ -29,6 +29,4 @@ struct YearModel: Codable {
     var oct: String
     var nov: String
     var dec: String
-
-
 }
