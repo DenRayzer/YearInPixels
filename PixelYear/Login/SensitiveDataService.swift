@@ -7,37 +7,28 @@
 //
 
 import Foundation
-import Locksmith
+import KeychainAccess
 
 enum KeychainKeys {
-    static let userAccountKey = "currentAccount"
-    static let accessTokenKey = "accessToken"
+    static let userAccountMandarinShowKey = "MandarinCurrentAccount"
+    static let mandarinShowAccessTokenKey = "MaindarinAccessToken"
 }
 
 class SensitiveDataService {
 
-    static func saveAccessToken(token: String) {
+    private let myKeychain = Keychain(service: "MandarinShow")
+    func saveMandarinshowAccessToken(token: String) {
         do {
-            try Locksmith.saveData(data: [KeychainKeys.accessTokenKey: token],
-                forUserAccount: KeychainKeys.userAccountKey)
-        } catch {
-            print("Unable to save data")
-            do {
-                try Locksmith.updateData(data: [KeychainKeys.accessTokenKey: token],
-                    forUserAccount: KeychainKeys.userAccountKey)
-            } catch {
-                print("Unable to update data")
-            }
+            try myKeychain.set(token, key: KeychainKeys.mandarinShowAccessTokenKey)
+        }
+        catch let error {
+            print(error)
         }
     }
 
-    func getToken() -> String? {
-        guard let userDataDictionary = Locksmith.loadDataForUserAccount(userAccount: KeychainKeys.userAccountKey)
-            else {
-                print ("no token")
-                return nil
-        }
-        return userDataDictionary[KeychainKeys.accessTokenKey] as? String
+    func getMandarinShowToken() -> String? {
+        let token = try? myKeychain.getString(KeychainKeys.mandarinShowAccessTokenKey)
+        return token
     }
 
 }
