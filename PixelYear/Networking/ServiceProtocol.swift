@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Service {
-   func getYear(year: Int) -> YearModel?
+   func getYear(year: Int, completion:  ((Result<Year, Error>) -> Void)?)
    func setDay()
 }

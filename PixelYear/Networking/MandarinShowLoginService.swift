@@ -4,7 +4,7 @@
 //
 //  Created by Елизавета on 30.07.2020.
 //  Copyright © 2020 Elizaveta. All rights reserved.
-//щф
+//
 
 import Foundation
 
@@ -21,40 +21,43 @@ fileprivate enum MandarinShowLoginServiceKeys {
     static let codeParam = "code"
 }
 
+enum APIError: Error {
+    case badUrl
+    case resultParsingFailed
+    case dataCorrupted
+}
+
+
 class MandarinShowLoginService {
 
-    func getAccessToken(with code: String) -> String? {
+    func getAccessToken(with code: String, completion: @escaping (Result<String, Error>) -> Void) {
         let session = URLSession.shared
-        let semaphore = DispatchSemaphore(value: 0)
         guard let url = NetworkHelper.prepareUrl(with: MandarinShowLoginServiceKeys.host,
-            for: MandarinShowLoginServiceKeys.tokenEndpoint) else { return nil }
+            for: MandarinShowLoginServiceKeys.tokenEndpoint) else {
+            completion(.failure(APIError.badUrl))
+            return
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        var token: String?
         let params = [MandarinShowLoginServiceKeys.clientIdParam: MandarinShowLoginServiceKeys.clientId,
             MandarinShowLoginServiceKeys.clientSecretParam: MandarinShowLoginServiceKeys.clientSecret,
             MandarinShowLoginServiceKeys.redirectUriParam: MandarinShowLoginServiceKeys.redirectUri,
             MandarinShowLoginServiceKeys.codeParam: code]
 
         try? request.setMultipartFormData(params, encoding: String.defaultCStringEncoding)
-
-        let task = session.dataTask(with: request, completionHandler: { (data: Data?,
-            response: URLResponse?,
-            error: Error?) -> Void in
-            do {
-                let answer = try JSONDecoder().decode(AutorizeAnswer.self, from: data!)
-                token = answer.token
-
-            } catch {
-                print("JSON error: \(error.localizedDescription)")
+        session.dataTask(with: request) { data, response, error in
+            if let currentError = error {
+                completion(.failure(currentError))
+                return
             }
-            semaphore.signal()
-        })
-
-        task.resume()
-        _ = semaphore.wait(timeout: .distantFuture)
-
-        return token
+            guard let resultData = data,
+                let answer = try? JSONDecoder().decode(AutorizeAnswer.self, from: resultData) else {
+                    completion(.failure(APIError.resultParsingFailed))
+                    return
+            }
+              let token = answer.token
+              completion(.success(token))
+        }.resume()
     }
 
     func autorizePageRequest () -> URLRequest? {
@@ -70,4 +73,3 @@ class MandarinShowLoginService {
     }
 
 }
-

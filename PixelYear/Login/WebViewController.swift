@@ -24,7 +24,6 @@ class WebViewController: UIViewController {
         webView.load(myRequest)
     }
 
-
     func clearCookie() {
         webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
             for cookie in cookies {
@@ -67,24 +66,31 @@ extension WebViewController: WKNavigationDelegate {
                 return
             }
 
-            if url.absoluteString.contains("code") {
+            if !url.absoluteString.contains("code") { return }
                 //  clearCookie()
                 guard let code = url.valueOf("code") else {
                     print("ретёрнуло 1")
                     return
                 }
-                guard let token = loginService.getAccessToken(with: code) else {
-                    print("ретёрнуло 2")
-                    return
+
+                loginService.getAccessToken(with: code) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let token):
+                        DispatchQueue.main.async {
+                            let dataService = SensitiveDataService()
+                            dataService.saveMandarinshowAccessToken(token: token)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as UIViewController
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
-                SensitiveDataService().saveMandarinshowAccessToken(token: token)
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as UIViewController
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true, completion: nil)
             }
         }
+
     }
-
-}
-

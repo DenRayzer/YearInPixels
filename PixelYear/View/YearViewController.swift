@@ -11,7 +11,7 @@ import UIKit
 class YearViewController: UIViewController {
     private let cellIdentifier = "YearCollectionViewCell"
     private var collectionViewFlowLayout: UICollectionViewFlowLayout! = nil
-    private var presenter = YearPresenter()
+    private var presenter: YearPresenter!
     private var years: [Int: Year] = [:]
     private var currentYear = Calendar.current.component(.year, from: Date())
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,7 +26,8 @@ class YearViewController: UIViewController {
         //   MandarinShowService().getYears(year: 2018)
         setupCollectionView()
         setUpCollectionViewItemSize()
-        if let year = presenter.getYear(year: currentYear) { years[year.year] = year }
+presenter = YearPresenter(view: self)
+       // if let year = presenter.getYear(year: currentYear) { years[year.year] = year }
 
     }
 
@@ -62,8 +63,6 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
-        //    if let currentYearIndex = years.firstIndex(where: { $0.year == currentYear }) {
-        //   cell.setYear(year: years[currentYear]!)
         print("\(indexPath.row) indexpath")
         if collectionView.contentOffset.x < CGPoint().x {
 
@@ -113,3 +112,6 @@ extension YearViewController: HeaderViewDelegate {
         header.updateYearButton(year: currentYear)
     }
 }
+
+// MARK: - YearViewController
+extension YearViewController: YearViewProtocol { }
