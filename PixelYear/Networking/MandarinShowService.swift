@@ -43,7 +43,7 @@ class MandarinShowService: Service {
     func getYearsRequest(url: URL) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        guard let token = SensitiveDataService().getToken() else { return nil }
+        guard let token = SensitiveDataService().getMandarinShowToken() else { return nil }
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }

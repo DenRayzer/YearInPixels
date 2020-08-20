@@ -77,7 +77,7 @@ extension WebViewController: WKNavigationDelegate {
                     print("ретёрнуло 2")
                     return
                 }
-                SensitiveDataService.saveAccessToken(token: token)
+                SensitiveDataService().saveMandarinshowAccessToken(token: token)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as UIViewController
                 vc.modalPresentationStyle = .fullScreen
