@@ -35,7 +35,7 @@ class HeaderView: UIView {
         super.init(frame: frame)
         setupView()
     }
-    
+
     @IBAction func previousButtonAction(_ sender: Any) {
         print("prev")
         delegate?.didTapPrevious()

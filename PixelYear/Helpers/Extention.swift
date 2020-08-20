@@ -34,25 +34,19 @@ extension URLRequest {
                 if !body.isEmpty {
                     body.append("\r\n".data(using: .utf8)!)
                 }
-
                 body.append("--\(boundary)\r\n".data(using: .utf8)!)
-
                 guard
                 rawName.canBeConverted(to: encoding),
                     let disposition = "Content-Disposition: form-data; name=\"\(rawName)\"\r\n".data(using: encoding) else {
                         throw MultipartFormDataEncodingError.name(rawName)
                 }
                 body.append(disposition)
-
                 body.append("\r\n".data(using: .utf8)!)
-
                 guard let value = rawValue.data(using: encoding) else {
                     throw MultipartFormDataEncodingError.value(rawValue, name: rawName)
                 }
-
                 body.append(value)
             }
-
             body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
 
             return body

@@ -14,30 +14,43 @@ fileprivate enum MandarinShowServiceKeys {
 
 class MandarinShowService: Service {
 
+    let mapper: YearMapper
 
+    init(mapper: YearMapper = YearMapper()) {
+        self.mapper = mapper
+    }
 
-    func getYear(year: Int) -> YearModel? {
-        let semaphore = DispatchSemaphore(value: 0)
+    func getYear(year: Int, completion: ((Result<Year, Error>) -> Void)?) {
+        guard let completion = completion else { return }
         guard let url = NetworkHelper.prepareUrl(with: MandarinShowServiceKeys.host,
-            for: "\(year)/") else { return nil }
-        guard let request = getYearsRequest(url: url) else { return nil }
-        let session = URLSession.shared
-        var answer: [YearModel]?
-        let task = session.dataTask(with: request) {
-            data, response, error in
-            do {
-                if (try? JSONSerialization.jsonObject(with: data!, options: [])) != nil { /*  print(json) */ }
-                answer = try JSONDecoder().decode([YearModel].self, from: data!)
-            } catch {
-                print("JSON error: \(error.localizedDescription)")
-            }
-            semaphore.signal()
+            for: "\(year)/") else {
+            completion(.failure(APIError.badUrl))
+            return
         }
 
-        task.resume()
-        _ = semaphore.wait(timeout: .distantFuture)
+        guard let request = getYearsRequest(url: url) else {
+            completion(.failure(APIError.badUrl))
+            return
+        }
 
-        return answer?[0]
+        let session = URLSession.shared
+        session.dataTask(with: request) {
+            data, response, error in
+
+            if let currentError = error {
+                completion(.failure(currentError))
+                return
+            }
+            guard
+                let resultData = data,
+                let answer = try? JSONDecoder().decode([YearModel].self, from: resultData),
+                let year = self.mapper.convertYearModel(yearModel: answer[0])
+                else {
+                    completion(.failure(APIError.resultParsingFailed))
+                    return
+            }
+            completion(.success(year))
+        }.resume()
     }
 
     func getYearsRequest(url: URL) -> URLRequest? {
@@ -49,5 +62,4 @@ class MandarinShowService: Service {
     }
 
     func setDay() { }
-
 }
