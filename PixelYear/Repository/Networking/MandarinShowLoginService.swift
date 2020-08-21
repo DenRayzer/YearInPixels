@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate enum MandarinShowLoginServiceKeys {
+public enum MandarinShowLoginServiceKeys {
     static let host = "https://mandarinshow.ru/api/oauth/action/"
     static let clientIdParam = "client_id"
     static let clientId = "20"
