@@ -18,7 +18,7 @@ public enum MultipartFormDataEncodingError: Error {
 
 extension URLRequest {
 
-    public mutating func setMultipartFormData(_ parameters: [String: String], encoding: String.Encoding) throws {
+    public mutating func setMultipartFormData(_ parameters: [String: String], encoding: String.Encoding = String.defaultCStringEncoding) throws {
 
         let makeRandom = { UInt32.random(in: (.min)...(.max)) }
         let boundary = String(format: "------------------------%08X%08X", makeRandom(), makeRandom())
