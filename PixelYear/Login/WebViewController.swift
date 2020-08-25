@@ -77,6 +77,7 @@ extension WebViewController: WKNavigationDelegate {
                     print("ретёрнуло 2")
                     return
                 }
+            //    print("webviewtoken:  " + token)
                 SensitiveDataService.saveAccessToken(token: token)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as UIViewController

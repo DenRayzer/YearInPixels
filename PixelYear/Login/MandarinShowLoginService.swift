@@ -26,18 +26,21 @@ class MandarinShowLoginService {
     func getAccessToken(with code: String) -> String? {
         let session = URLSession.shared
         let semaphore = DispatchSemaphore(value: 0)
-        guard let url = prepareUrl(for: MandarinShowLoginServiceKeys.tokenEndpoint) else { return nil }
+        guard let url = NetworkHelper.prepareUrl(with: MandarinShowLoginServiceKeys.host,
+            for: MandarinShowLoginServiceKeys.tokenEndpoint) else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         var token: String?
         let params = [MandarinShowLoginServiceKeys.clientIdParam: MandarinShowLoginServiceKeys.clientId,
-                      MandarinShowLoginServiceKeys.clientSecretParam: MandarinShowLoginServiceKeys.clientSecret,
-                      MandarinShowLoginServiceKeys.redirectUriParam: MandarinShowLoginServiceKeys.redirectUri,
-                      MandarinShowLoginServiceKeys.codeParam: code]
+            MandarinShowLoginServiceKeys.clientSecretParam: MandarinShowLoginServiceKeys.clientSecret,
+            MandarinShowLoginServiceKeys.redirectUriParam: MandarinShowLoginServiceKeys.redirectUri,
+            MandarinShowLoginServiceKeys.codeParam: code]
 
         try? request.setMultipartFormData(params, encoding: String.defaultCStringEncoding)
 
-        let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
+        let task = session.dataTask(with: request, completionHandler: { (data: Data?,
+            response: URLResponse?,
+            error: Error?) -> Void in
             do {
                 let answer = try JSONDecoder().decode(AutorizeAnswer.self, from: data!)
                 token = answer.token
@@ -56,26 +59,15 @@ class MandarinShowLoginService {
 
     func autorizePageRequest () -> URLRequest? {
         let params = [MandarinShowLoginServiceKeys.clientIdParam: MandarinShowLoginServiceKeys.clientId,
-                      MandarinShowLoginServiceKeys.redirectUriParam: MandarinShowLoginServiceKeys.redirectUri]
+            MandarinShowLoginServiceKeys.redirectUriParam: MandarinShowLoginServiceKeys.redirectUri]
 
-        guard let requestURL = prepareUrl(for: MandarinShowLoginServiceKeys.autorizeEndpoint, params: params) else {
+        guard let requestURL = NetworkHelper.prepareUrl(with: MandarinShowLoginServiceKeys.host,
+            for: MandarinShowLoginServiceKeys.autorizeEndpoint,
+            params: params) else {
             return nil
         }
         return URLRequest(url: requestURL)
     }
 
-    private func prepareUrl(for endpoint: String, params: [String: Any] = [:]) -> URL? {
-        guard var components = URLComponents(string: MandarinShowLoginServiceKeys.host) else {
-            return nil
-        }
-        let requestParams = params
-
-        components.path.append(endpoint)
-        components.queryItems = requestParams.map { key, value in
-            URLQueryItem(name: key, value: String(describing: value))
-        }
-        return components.url
-    }
-    
 }
 

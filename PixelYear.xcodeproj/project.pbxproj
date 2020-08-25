@@ -11,6 +11,10 @@
 		6E137B1624E00998001737CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1524E00998001737CE /* TabBarController.swift */; };
 		6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */; };
 		6E19DEFB24D2F7680036DBD9 /* MandarinShowLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */; };
+		6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F5E24E17C0F00B62654 /* Year.swift */; };
+		6E2A2F6124E17C8200B62654 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F6024E17C8200B62654 /* Day.swift */; };
+		6E2A2F6624E189DF00B62654 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F6524E189DF00B62654 /* HeaderView.swift */; };
+		6E40578824E4342E002F1765 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */; };
 		6E50AB7324C8DB920093FEAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7224C8DB920093FEAD /* AppDelegate.swift */; };
 		6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */; };
 		6E50AB7A24C8DB920093FEAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB7824C8DB920093FEAD /* Main.storyboard */; };
@@ -20,8 +24,12 @@
 		6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE324DC1514006D962F /* SensitiveDataService.swift */; };
 		6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE524DD5FAE006D962F /* Extention.swift */; };
 		6E74FDE924DD737C006D962F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE824DD737C006D962F /* Model.swift */; };
+		6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */; };
+		6E96DB8724E3F51500BF99C9 /* YearCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */; };
 		6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED142B124D41366000DD2FC /* WebViewController.swift */; };
 		6ED142B424D47D5C000DD2FC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED142B324D47D5C000DD2FC /* Login.storyboard */; };
+		6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */; };
+		6EDC988824E14DE800D1AB2D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */; };
 		8951666CD9EC1969E13A91F3 /* Pods_PixelYear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0F254B6F3BF8D8607B6516 /* Pods_PixelYear.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +40,10 @@
 		6E137B1524E00998001737CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarinShowLoginService.swift; sourceTree = "<group>"; };
+		6E2A2F5E24E17C0F00B62654 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		6E2A2F6024E17C8200B62654 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		6E2A2F6524E189DF00B62654 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E50AB6F24C8DB920093FEAD /* PixelYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E50AB7224C8DB920093FEAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,8 +55,12 @@
 		6E74FDE324DC1514006D962F /* SensitiveDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveDataService.swift; sourceTree = "<group>"; };
 		6E74FDE524DD5FAE006D962F /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		6E74FDE824DD737C006D962F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearCollectionViewCell.xib; sourceTree = "<group>"; };
 		6ED142B124D41366000DD2FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6ED142B324D47D5C000DD2FC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarinShowService.swift; sourceTree = "<group>"; };
+		6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		CBD06ED0E99EDF46471118D0 /* Pods-PixelYear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelYear.debug.xcconfig"; path = "Target Support Files/Pods-PixelYear/Pods-PixelYear.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +103,18 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		6E2A2F6224E1849300B62654 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E137B1324E006B6001737CE /* YearViewController.swift */,
+				6E2A2F6524E189DF00B62654 /* HeaderView.swift */,
+				6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */,
+				6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */,
+				6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6E50AB6624C8DB920093FEAD = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +136,7 @@
 		6E50AB7124C8DB920093FEAD /* PixelYear */ = {
 			isa = PBXGroup;
 			children = (
+				6E2A2F6224E1849300B62654 /* View */,
 				6E74FDE724DD71ED006D962F /* Login */,
 				6E19DEBC24D17D280036DBD9 /* Storyboards */,
 				6E50AB7224C8DB920093FEAD /* AppDelegate.swift */,
@@ -116,7 +145,6 @@
 				6E50AB8324C8DB970093FEAD /* Info.plist */,
 				6E50AB7B24C8DB920093FEAD /* PixelYear.xcdatamodeld */,
 				6E74FDE524DD5FAE006D962F /* Extention.swift */,
-				6E137B1324E006B6001737CE /* YearViewController.swift */,
 				6E137B1524E00998001737CE /* TabBarController.swift */,
 			);
 			path = PixelYear;
@@ -130,6 +158,10 @@
 				6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */,
 				6ED142B124D41366000DD2FC /* WebViewController.swift */,
 				6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */,
+				6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */,
+				6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */,
+				6E2A2F5E24E17C0F00B62654 /* Year.swift */,
+				6E2A2F6024E17C8200B62654 /* Day.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -197,6 +229,7 @@
 				6ED142B424D47D5C000DD2FC /* Login.storyboard in Resources */,
 				6E50AB8224C8DB970093FEAD /* LaunchScreen.storyboard in Resources */,
 				6E50AB7F24C8DB970093FEAD /* Assets.xcassets in Resources */,
+				6E96DB8724E3F51500BF99C9 /* YearCollectionViewCell.xib in Resources */,
 				6E50AB7A24C8DB920093FEAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,16 +283,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EDC988824E14DE800D1AB2D /* NetworkHelper.swift in Sources */,
 				6E137B1424E006B6001737CE /* YearViewController.swift in Sources */,
 				6E50AB7D24C8DB920093FEAD /* PixelYear.xcdatamodeld in Sources */,
 				6E137B1624E00998001737CE /* TabBarController.swift in Sources */,
 				6E50AB7324C8DB920093FEAD /* AppDelegate.swift in Sources */,
+				6E2A2F6624E189DF00B62654 /* HeaderView.swift in Sources */,
+				6E40578824E4342E002F1765 /* DayCollectionViewCell.swift in Sources */,
+				6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */,
 				6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */,
+				6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */,
 				6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */,
+				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
 				6E74FDE924DD737C006D962F /* Model.swift in Sources */,
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6E19DEFB24D2F7680036DBD9 /* MandarinShowLoginService.swift in Sources */,
 				6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */,
+				6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */,
 				6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,10 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var storyboardName: String
         let sensetiveDataService = SensitiveDataService()
 
-//        if let _ = sensetiveDataService.getToken() {
-//            storyboardName = "Main"
-//        } else { storyboardName = "Login" }
-        storyboardName = "Login"
+        if let v = sensetiveDataService.getToken() {
+         //   print(v + "jj")
+            storyboardName = "Main"
+        } else { storyboardName = "Login" }
+      //  storyboardName = "Login"
 
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
 
