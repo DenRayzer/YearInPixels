@@ -10,7 +10,7 @@ import WebKit
 
 
 class WebViewController: UIViewController {
-    let loginService = MandarinShowLoginService()
+    let loginService = MandarinShowLoginManager()
     var webView = WKWebView()
 
     override func viewDidLoad() {

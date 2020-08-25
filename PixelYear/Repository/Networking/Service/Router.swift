@@ -22,11 +22,10 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             }.resume()
         } catch {
             completion(nil, nil, error)
-
         }
     }
 
-    fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
+    func buildRequest(from route: EndPoint) throws -> URLRequest {
         let url = route.baseURL.appendingPathComponent(route.path)
         var request = URLRequest (url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         request.httpMethod = route.httpMethod.rawValue
@@ -36,9 +35,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             case .requestWithMultipartFormData(let parameters):
                 try request.setMultipartFormData(parameters ?? [:])
-            case .requestParametersHeaders(let urlParameters, let additionHeaders):
+            case .requestParametersHeaders(let urlParameters):
                 if let params = urlParameters { self.configureParameters(params, urlRequest: &request) }
-                if let headers = additionHeaders { self.additionalHeaders(headers, request: &request) }
+                if let headers = route.headers { self.additionalHeaders(headers, request: &request) }
             }
         }
         return request
