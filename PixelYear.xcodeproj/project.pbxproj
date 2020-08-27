@@ -21,11 +21,14 @@
 		6E50AB7D24C8DB920093FEAD /* PixelYear.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7B24C8DB920093FEAD /* PixelYear.xcdatamodeld */; };
 		6E50AB7F24C8DB970093FEAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB7E24C8DB970093FEAD /* Assets.xcassets */; };
 		6E50AB8224C8DB970093FEAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB8024C8DB970093FEAD /* LaunchScreen.storyboard */; };
+		6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E655B6124E50E2300C336D0 /* YearPresenter.swift */; };
 		6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE324DC1514006D962F /* SensitiveDataService.swift */; };
 		6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE524DD5FAE006D962F /* Extention.swift */; };
-		6E74FDE924DD737C006D962F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE824DD737C006D962F /* Model.swift */; };
+		6E74FDE924DD737C006D962F /* YearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE824DD737C006D962F /* YearModel.swift */; };
 		6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */; };
 		6E96DB8724E3F51500BF99C9 /* YearCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */; };
+		6EC64A5224EBDF0500824A4C /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */; };
+		6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5424EBDF6700824A4C /* YearMapper.swift */; };
 		6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED142B124D41366000DD2FC /* WebViewController.swift */; };
 		6ED142B424D47D5C000DD2FC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED142B324D47D5C000DD2FC /* Login.storyboard */; };
 		6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */; };
@@ -52,11 +55,14 @@
 		6E50AB7E24C8DB970093FEAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E50AB8124C8DB970093FEAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E50AB8324C8DB970093FEAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E655B6124E50E2300C336D0 /* YearPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPresenter.swift; sourceTree = "<group>"; };
 		6E74FDE324DC1514006D962F /* SensitiveDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveDataService.swift; sourceTree = "<group>"; };
 		6E74FDE524DD5FAE006D962F /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
-		6E74FDE824DD737C006D962F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6E74FDE824DD737C006D962F /* YearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearModel.swift; sourceTree = "<group>"; };
 		6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearCollectionViewCell.xib; sourceTree = "<group>"; };
+		6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		6EC64A5424EBDF6700824A4C /* YearMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMapper.swift; sourceTree = "<group>"; };
 		6ED142B124D41366000DD2FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6ED142B324D47D5C000DD2FC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarinShowService.swift; sourceTree = "<group>"; };
@@ -93,28 +99,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6E19DEBC24D17D280036DBD9 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				6ED142B324D47D5C000DD2FC /* Login.storyboard */,
-				6E50AB8024C8DB970093FEAD /* LaunchScreen.storyboard */,
-				6E50AB7824C8DB920093FEAD /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		6E2A2F6224E1849300B62654 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6E137B1324E006B6001737CE /* YearViewController.swift */,
-				6E2A2F6524E189DF00B62654 /* HeaderView.swift */,
-				6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */,
-				6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */,
-				6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		6E50AB6624C8DB920093FEAD = {
 			isa = PBXGroup;
 			children = (
@@ -136,34 +120,147 @@
 		6E50AB7124C8DB920093FEAD /* PixelYear */ = {
 			isa = PBXGroup;
 			children = (
-				6E2A2F6224E1849300B62654 /* View */,
-				6E74FDE724DD71ED006D962F /* Login */,
-				6E19DEBC24D17D280036DBD9 /* Storyboards */,
-				6E50AB7224C8DB920093FEAD /* AppDelegate.swift */,
-				6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */,
-				6E50AB7E24C8DB970093FEAD /* Assets.xcassets */,
-				6E50AB8324C8DB970093FEAD /* Info.plist */,
-				6E50AB7B24C8DB920093FEAD /* PixelYear.xcdatamodeld */,
-				6E74FDE524DD5FAE006D962F /* Extention.swift */,
-				6E137B1524E00998001737CE /* TabBarController.swift */,
+				6EDFF12224EEB1CE00511071 /* Common */,
+				6EDFF12524EEB21400511071 /* Resources */,
+				6EDFF12424EEB20600511071 /* Repository */,
+				6EDFF12324EEB1E400511071 /* UI */,
+				6EDFF12C24EEB4BA00511071 /* BusinessLogic */,
 			);
 			path = PixelYear;
+			sourceTree = "<group>";
+		};
+		6E655B6324E50E7D00C336D0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */,
+				6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */,
+				6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */,
+				6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		6E74FDE724DD71ED006D962F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				6E74FDE824DD737C006D962F /* Model.swift */,
-				6E74FDE324DC1514006D962F /* SensitiveDataService.swift */,
+				6ED142B324D47D5C000DD2FC /* Login.storyboard */,
 				6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */,
 				6ED142B124D41366000DD2FC /* WebViewController.swift */,
-				6E19DEFA24D2F7680036DBD9 /* MandarinShowLoginService.swift */,
-				6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */,
-				6EDC988724E14DE800D1AB2D /* NetworkHelper.swift */,
-				6E2A2F5E24E17C0F00B62654 /* Year.swift */,
-				6E2A2F6024E17C8200B62654 /* Day.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		6EC64A5324EBDF4700824A4C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6EC64A5424EBDF6700824A4C /* YearMapper.swift */,
+				6E74FDE524DD5FAE006D962F /* Extention.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6EDFF12224EEB1CE00511071 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6EC64A5324EBDF4700824A4C /* Helpers */,
+				6E50AB7224C8DB920093FEAD /* AppDelegate.swift */,
+				6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */,
+				6E50AB8024C8DB970093FEAD /* LaunchScreen.storyboard */,
+				6E50AB8324C8DB970093FEAD /* Info.plist */,
+				6E50AB7B24C8DB920093FEAD /* PixelYear.xcdatamodeld */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6EDFF12324EEB1E400511071 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6E74FDE724DD71ED006D962F /* Login */,
+				6EDFF12824EEB38D00511071 /* Main */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6EDFF12424EEB20600511071 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6E74FDE324DC1514006D962F /* SensitiveDataService.swift */,
+				6E655B6324E50E7D00C336D0 /* Networking */,
+				6EDFF12724EEB34400511071 /* PersistentStorage */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6EDFF12524EEB21400511071 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E50AB7E24C8DB970093FEAD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6EDFF12724EEB34400511071 /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
+		6EDFF12824EEB38D00511071 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6EDFF12A24EEB45F00511071 /* HeaderView */,
+				6EDFF12924EEB41700511071 /* YearView */,
+				6E50AB7824C8DB920093FEAD /* Main.storyboard */,
+				6E137B1524E00998001737CE /* TabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6EDFF12924EEB41700511071 /* YearView */ = {
+			isa = PBXGroup;
+			children = (
+				6EDFF12B24EEB47C00511071 /* YearItem */,
+				6E137B1324E006B6001737CE /* YearViewController.swift */,
+				6E655B6124E50E2300C336D0 /* YearPresenter.swift */,
+			);
+			path = YearView;
+			sourceTree = "<group>";
+		};
+		6EDFF12A24EEB45F00511071 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				6E2A2F6524E189DF00B62654 /* HeaderView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		6EDFF12B24EEB47C00511071 /* YearItem */ = {
+			isa = PBXGroup;
+			children = (
+				6E40578724E4342E002F1765 /* DayCollectionViewCell.swift */,
+				6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */,
+				6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */,
+			);
+			path = YearItem;
+			sourceTree = "<group>";
+		};
+		6EDFF12C24EEB4BA00511071 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				6EDFF12D24EEB4C800511071 /* Entity */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		6EDFF12D24EEB4C800511071 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E2A2F5E24E17C0F00B62654 /* Year.swift */,
+				6E2A2F6024E17C8200B62654 /* Day.swift */,
+				6E74FDE824DD737C006D962F /* YearModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,14 +390,17 @@
 				6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */,
 				6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */,
 				6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */,
+				6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */,
 				6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */,
+				6EC64A5224EBDF0500824A4C /* ServiceProtocol.swift in Sources */,
 				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
-				6E74FDE924DD737C006D962F /* Model.swift in Sources */,
+				6E74FDE924DD737C006D962F /* YearModel.swift in Sources */,
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6E19DEFB24D2F7680036DBD9 /* MandarinShowLoginService.swift in Sources */,
 				6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */,
 				6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */,
 				6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */,
+				6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PixelYear/Info.plist;
+				INFOPLIST_FILE = PixelYear/Common/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PixelYear/Info.plist;
+				INFOPLIST_FILE = PixelYear/Common/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
