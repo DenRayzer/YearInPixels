@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E135CBB24F9984500E75956 /* UIButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */; };
 		6E137B1424E006B6001737CE /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1324E006B6001737CE /* YearViewController.swift */; };
 		6E137B1624E00998001737CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1524E00998001737CE /* TabBarController.swift */; };
 		6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		2F0F254B6F3BF8D8607B6516 /* Pods_PixelYear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelYear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33192D015D1034EBAFC1319F /* Pods-PixelYear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelYear.release.xcconfig"; path = "Target Support Files/Pods-PixelYear/Pods-PixelYear.release.xcconfig"; sourceTree = "<group>"; };
+		6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithShadow.swift; sourceTree = "<group>"; };
 		6E137B1324E006B6001737CE /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		6E137B1524E00998001737CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 				33192D015D1034EBAFC1319F /* Pods-PixelYear.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6E135CB924F9975800E75956 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		6E50AB6624C8DB920093FEAD = {
@@ -175,6 +185,7 @@
 		6EDFF12324EEB1E400511071 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6E135CB924F9975800E75956 /* Elements */,
 				6E74FDE724DD71ED006D962F /* Login */,
 				6EDFF12824EEB38D00511071 /* Main */,
 			);
@@ -395,6 +406,7 @@
 				6EC64A5224EBDF0500824A4C /* ServiceProtocol.swift in Sources */,
 				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
 				6E74FDE924DD737C006D962F /* YearModel.swift in Sources */,
+				6E135CBB24F9984500E75956 /* UIButtonWithShadow.swift in Sources */,
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6E19DEFB24D2F7680036DBD9 /* MandarinShowLoginService.swift in Sources */,
 				6E74FDE624DD5FAE006D962F /* Extention.swift in Sources */,
@@ -546,7 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PixelYear/Info.plist;
+				INFOPLIST_FILE = PixelYear/Common/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PixelYear/Info.plist;
+				INFOPLIST_FILE = PixelYear/Common/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
