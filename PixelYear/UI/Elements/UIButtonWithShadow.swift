@@ -16,13 +16,14 @@ class UIButtonWithShadow: UIButton {
     }
 
     func configure() {
-//        let gradientLayer:CAGradientLayer = CAGradientLayer()
-//        gradientLayer.frame.size = self.frame.size
-//        gradientLayer.colors = [UIColor.init(named: "Gradient_left")!,UIColor.init(named: "Gradient_right")!].map{$0.cgColor}
-//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-//        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-//        gradientLayer.cornerRadius = 10
-//        self.layer.insertSublayer(gradientLayer, at: 0)
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [UIColor.init(named: "Gradient_left")!, UIColor.init(named: "Gradient_right")!].map {
+            $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.2, y: 1)
+        gradientLayer.cornerRadius = 10
+        self.layer.insertSublayer(gradientLayer, at: 0)
         self.layer.cornerRadius = 10
         self.layer.shadowColor = UIColor.red.withAlphaComponent(0.35).cgColor
         self.layer.shadowRadius = 20
