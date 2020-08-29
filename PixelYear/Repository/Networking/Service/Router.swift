@@ -13,7 +13,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
 
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
-        let session = URLSession.shared
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
         do {
             let request = try self.buildRequest(from: route)
             session.dataTask(with: request) { data, response, error in
@@ -27,35 +27,28 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
     func buildRequest(from route: EndPoint) throws -> URLRequest {
         let url = route.baseURL.appendingPathComponent(route.path)
-        var request = URLRequest (url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         request.httpMethod = route.httpMethod.rawValue
-        do {
-            switch route.task {
-            case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requestWithMultipartFormData(let parameters):
+
+        switch route.task {
+        case .requestWithMultipartFormData(let parameters):
+            do {
                 try request.setMultipartFormData(parameters ?? [:])
-            case .requestParametersHeaders(let urlParameters):
-                if let params = urlParameters { self.configureParameters(params, urlRequest: &request) }
-                if let headers = route.headers { self.additionalHeaders(headers, request: &request) }
             }
+        case .requestParametersHeaders(let urlParameters):
+            if let params = urlParameters { request.url = self.configureParameters(params, url: url) }
+            route.headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
+
         }
         return request
     }
 
-    fileprivate func configureParameters(_ urlParameters: Parameters, urlRequest: inout URLRequest) {
-        guard let url = urlRequest.url else { return }
-        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-
+    private func configureParameters(_ urlParameters: Parameters, url: URL) -> URL? {
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return nil }
         components.queryItems = urlParameters.map { key, value in
             URLQueryItem(name: key, value: String(describing: value))
         }
-        urlRequest.url = components.url
+        return components.url
     }
 
-    fileprivate func additionalHeaders(_ additionalHeaders: HTTPHeaders, request: inout URLRequest) {
-        for(key, value) in additionalHeaders {
-            request.setValue(value, forHTTPHeaderField: key)
-        }
-    }
 }

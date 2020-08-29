@@ -166,9 +166,6 @@
 		6E655B6324E50E7D00C336D0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				6EFBDF8F24F291DA009DE6EA /* MandarinShowLoginManager.swift */,
-				6EF4F73924F558B00098D72C /* MandarinShowManager.swift */,
-				6EC64A5124EBDF0500824A4C /* ManagerProtocol.swift */,
 				6EE290ED24F56D1B0098D587 /* Manager */,
 				6E3F8E7324EEBE2100F0A7A9 /* Service */,
 				6E3F8E7224EEBC0900F0A7A9 /* EndPoint */,
@@ -301,6 +298,9 @@
 		6EE290ED24F56D1B0098D587 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				6EC64A5124EBDF0500824A4C /* ManagerProtocol.swift */,
+				6EF4F73924F558B00098D72C /* MandarinShowManager.swift */,
+				6EFBDF8F24F291DA009DE6EA /* MandarinShowLoginManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

@@ -7,10 +7,9 @@
 //
 
 import Foundation
-public typealias Parameters = [String:String]
+public typealias Parameters = [String: String]
 
 public enum HTTPTask {
-    case request
     case requestWithMultipartFormData(parameters: Parameters?)
     case requestParametersHeaders(urlParameters: Parameters?)
 }
