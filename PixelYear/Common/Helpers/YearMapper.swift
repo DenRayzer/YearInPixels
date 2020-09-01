@@ -29,13 +29,13 @@ class YearMapper {
            monthsString.append(yearModel.nov)
            monthsString.append(yearModel.dec)
 
-           var months: [[Int]] = []
+           var months: [[String]] = []
 
            for i in 0..<monthsString.count - 1 {
                let month = monthsString[i]
                months.append([])
                for j in 0..<30 {
-                   let day: Int = Int(String(month[j]))!
+                   let day = String(month[j])
                    months[i].append(day)
                }
            }

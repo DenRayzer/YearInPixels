@@ -8,21 +8,21 @@
 
 import Foundation
 
-protocol YearViewProtocol: class {
 
-}
+class YearViewPresenter {
+    private var service: Service
+    weak private var viewDelegate: YearViewDelegate?
 
-protocol YearPresenterProtocol: class {
+    init(service: Service = MandarinShowService()) {
+        self.service = service
+    }
 
-}
+    func setViewDelegate(viewDelegate: YearViewDelegate?) {
+        self.viewDelegate = viewDelegate
+    }
 
-class YearPresenter: YearPresenterProtocol {
-    private var mandarinShowService: Service
-    private let view: YearViewProtocol
+    func loadYears(from year: Int) {
 
-    init(view: YearViewProtocol, service: Service = MandarinShowService()) {
-        self.mandarinShowService = service
-        self.view = view
     }
 
 }

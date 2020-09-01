@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            print(v)
 //                  storyboardName = "Main"
 //        } else { storyboardName = "Login" }
-        storyboardName = "Login"
+        storyboardName = "Main"
 
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
 

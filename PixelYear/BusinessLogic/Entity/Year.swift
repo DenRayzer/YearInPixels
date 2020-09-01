@@ -10,10 +10,21 @@ import Foundation
 
 struct Year {
     let year: Int
-    var months: [[Int]]
+    var months: [[String]]
 
-    init(year: Int, months: [[Int]] = []) {
+    init(year: Int, months: [[String]] = [[]]) {
         self.year = year
+        if months.isEmpty {
+            var month: [[String]] = [[]]
+            for i in 1..<12 {
+                month.append([])
+                for _ in 1..<31 {
+                    month[i].append("0")
+                }
+            }
+            self.months = month
+            return
+        }
         self.months = months
     }
 }

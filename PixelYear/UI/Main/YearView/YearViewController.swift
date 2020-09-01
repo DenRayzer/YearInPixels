@@ -11,7 +11,6 @@ import UIKit
 class YearViewController: UIViewController {
     private let cellIdentifier = "YearCollectionViewCell"
     private var collectionViewFlowLayout: UICollectionViewFlowLayout! = nil
-    private var presenter: YearPresenter!
     private var years: [Int: Year] = [:]
     private var currentYear = Calendar.current.component(.year, from: Date())
     @IBOutlet weak var collectionView: UICollectionView!
@@ -23,20 +22,15 @@ class YearViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //   MandarinShowService().getYears(year: 2018)
+        years[2020] = Year(year: 2020)
         setupCollectionView()
         setUpCollectionViewItemSize()
-presenter = YearPresenter(view: self)
-       // if let year = presenter.getYear(year: currentYear) { years[year.year] = year }
-
     }
 
     func setupCollectionView() {
-        let nib = UINib(nibName: "YearCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(YearCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-
     }
 
     func setUpCollectionViewItemSize() {
@@ -49,7 +43,7 @@ presenter = YearPresenter(view: self)
             collectionViewFlowLayout.scrollDirection = .horizontal
             collectionViewFlowLayout.minimumLineSpacing = 0
             collectionViewFlowLayout.minimumInteritemSpacing = 0
-            collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
+            collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: false)
         }
     }
 
@@ -63,25 +57,22 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
-        print("\(indexPath.row) indexpath")
+        cell.setSize()
         if collectionView.contentOffset.x < CGPoint().x {
 
         }
-
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("didSelectItem at \(indexPath)")
     }
+
     func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
         print("tak tak")
     }
 
-
-
 }
-
 
 // MARK: - HeaderViewDelegate
 extension YearViewController: HeaderViewDelegate {
@@ -114,4 +105,8 @@ extension YearViewController: HeaderViewDelegate {
 }
 
 // MARK: - YearViewController
-extension YearViewController: YearViewProtocol { }
+extension YearViewController: YearViewDelegate {
+    func updateYears() {
+
+    }
+}
