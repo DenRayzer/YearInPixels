@@ -22,7 +22,7 @@ enum MandarinShow {
     case setDay(day: Day)
 }
 
-extension MandarinShow: EndPointType {
+extension MandarinShow: EndpointType {
     var baseURL: URL {
         guard let url = URL(string: MandarinShowKeys.host) else { fatalError("baseURL couldn't be configured") }
         return url
@@ -46,16 +46,18 @@ extension MandarinShow: EndPointType {
     var task: HTTPTask {
         switch self {
         case .getYear(_):
-            return .requestParametersHeaders(urlParameters: nil)
-        case .setDay(let dayToset):
-            let year = String(dayToset.date.get(.year))
-            let month = String(dayToset.date.get(.month))
-            let day = String(dayToset.date.get(.day))
-            let params = [MandarinShowKeys.yearParam: year,
-                MandarinShowKeys.monthParam: month,
-                MandarinShowKeys.dayParam: day,
-                MandarinShowKeys.infoParam: dayToset.status]
-            return .requestParametersHeaders(urlParameters: params)
+            return .requestParameters(urlParameters: nil)
+        case .setDay(let day):
+            let yearString = String(day.date.get(.year))
+            let monthString = String(day.date.get(.month))
+            let dayString = String(day.date.get(.day))
+            let params = [
+                MandarinShowKeys.yearParam: yearString,
+                MandarinShowKeys.monthParam: monthString,
+                MandarinShowKeys.dayParam: dayString,
+                MandarinShowKeys.infoParam: day.status
+            ]
+            return .requestParameters(urlParameters: params)
         }
     }
 

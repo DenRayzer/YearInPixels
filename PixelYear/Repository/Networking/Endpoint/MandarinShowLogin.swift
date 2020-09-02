@@ -32,7 +32,7 @@ enum MandarinShowLogin {
     case token(code: String)
 }
 
-extension MandarinShowLogin: EndPointType {
+extension MandarinShowLogin: EndpointType {
     var baseURL: URL {
         guard let url = URL(string: MandarinShowLoginKeys.host) else { fatalError("baseURL couldn't be configured") }
         return url
@@ -59,14 +59,18 @@ extension MandarinShowLogin: EndPointType {
     var task: HTTPTask {
         switch self {
         case .autorizePage:
-            let params = [MandarinShowLoginKeys.clientIdParam: MandarinShowLoginKeys.clientId,
-                MandarinShowLoginKeys.redirectUriParam: MandarinShowLoginKeys.redirectUri]
-            return .requestParametersHeaders(urlParameters: params)
+            let params = [
+                MandarinShowLoginKeys.clientIdParam: MandarinShowLoginKeys.clientId,
+                MandarinShowLoginKeys.redirectUriParam: MandarinShowLoginKeys.redirectUri
+            ]
+            return .requestParameters(urlParameters: params)
         case .token(let code):
-            let params = [MandarinShowLoginKeys.clientIdParam: MandarinShowLoginKeys.clientId,
+            let params = [
+                MandarinShowLoginKeys.clientIdParam: MandarinShowLoginKeys.clientId,
                 MandarinShowLoginKeys.clientSecretParam: MandarinShowLoginKeys.clientSecret,
                 MandarinShowLoginKeys.redirectUriParam: MandarinShowLoginKeys.redirectUri,
-                MandarinShowLoginKeys.codeParam: code]
+                MandarinShowLoginKeys.codeParam: code
+            ]
             return .requestWithMultipartFormData(parameters: params)
 
         }

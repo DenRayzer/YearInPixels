@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct MandarinShowLoginManager {
-      let router = Router<MandarinShowLogin>()
+class MandarinShowLoginService {
+    let router: Router<MandarinShowLogin>
+
+    init(router: Router<MandarinShowLogin> = Router<MandarinShowLogin>()) {
+        self.router = router
+    }
 
     func getAccessToken(with code: String, completion: @escaping (Result<String, Error>) -> Void) {
         router.request(.token(code: code)) {
@@ -23,13 +27,13 @@ struct MandarinShowLoginManager {
                     completion(.failure(APIError.resultParsingFailed))
                     return
             }
-              let token = answer.token
-              completion(.success(token))
+            let token = answer.token
+            completion(.success(token))
         }
     }
 
     func autorizePageRequest() -> URLRequest? {
-       return try? router.buildRequest(from: MandarinShowLogin.autorizePage)
+        return try? router.buildRequest(from: MandarinShowLogin.autorizePage)
     }
 
 }

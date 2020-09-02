@@ -11,5 +11,5 @@ public typealias Parameters = [String: String]
 
 public enum HTTPTask {
     case requestWithMultipartFormData(parameters: Parameters?)
-    case requestParametersHeaders(urlParameters: Parameters?)
+    case requestParameters(urlParameters: Parameters?)
 }

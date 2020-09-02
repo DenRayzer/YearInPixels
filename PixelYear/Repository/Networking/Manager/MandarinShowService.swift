@@ -8,13 +8,14 @@
 
 import Foundation
 
-class MandarinShowManager: Manager {
+class MandarinShowService: Manager {
 
-    let router = Router<MandarinShow>()
+    let router: Router<MandarinShow>
     let mapper: YearMapper
 
-    init(mapper: YearMapper = YearMapper()) {
+    init(mapper: YearMapper = YearMapper(), router: Router<MandarinShow> = Router<MandarinShow>()) {
         self.mapper = mapper
+        self.router = router
     }
 
     func getYear(year: Int, completion: @escaping (Result<Year, Error>) -> Void) {
@@ -24,11 +25,14 @@ class MandarinShowManager: Manager {
                 completion(.failure(currentError))
             }
             guard let resultData = data,
-                let answer = try? JSONDecoder().decode([YearModel].self, from: resultData),
-                let year = self.mapper.convertYearModel(yearModel: answer[0]) else {
+                let yearsModels = try? JSONDecoder().decode([YearModel].self, from: resultData) else {
                     completion(.failure(APIError.resultParsingFailed))
                     return
             }
+            if !yearsModels.isEmpty {
+                guard let year = self.mapper.convertYearModel(yearModel: yearModel) else { return }
+            }
+
             completion(.success(year))
         }
     }

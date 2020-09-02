@@ -17,10 +17,10 @@ protocol YearPresenterProtocol: class {
 }
 
 class YearPresenter: YearPresenterProtocol {
-    private var mandarinShowService: Manager
+    private var mandarinShowService: CalendarService
     private let view: YearViewProtocol
 
-    init(view: YearViewProtocol, service: Manager = MandarinShowManager()) {
+    init(view: YearViewProtocol, service: CalendarService = MandarinShowService()) {
         self.mandarinShowService = service
         self.view = view
     }
