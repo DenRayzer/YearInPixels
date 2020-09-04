@@ -11,8 +11,9 @@ import UIKit
 class YearViewController: UIViewController {
     private let cellIdentifier = "YearCollectionViewCell"
     private var collectionViewFlowLayout: UICollectionViewFlowLayout! = nil
-    private var years: [Int: Year] = [:]
     private var currentYear = Calendar.current.component(.year, from: Date())
+    private var years: [Year] = []
+    private var presenter = YearViewPresenter()
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var header: HeaderView! {
         didSet {
@@ -22,7 +23,8 @@ class YearViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        years[2020] = Year(year: 2020)
+        presenter.setViewDelegate(viewDelegate: self)
+        presenter.loadYears(from: currentYear, count: 6)
         setupCollectionView()
         setUpCollectionViewItemSize()
     }
@@ -57,21 +59,21 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
+        cell.setYear(year: years[indexPath.row])
         cell.setSize()
-        if collectionView.contentOffset.x < CGPoint().x {
 
-        }
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItem at \(indexPath)")
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in collectionView.visibleCells {
+            let indexPath = collectionView.indexPath(for: cell)
+            if indexPath?.row == years.count - 1 {
+                presenter.loadYears(from: years[years.count - 1].year - 1, count: 3)
+            }
+            print("\(indexPath!.row)  ///")
+        }
     }
-
-    func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        print("tak tak")
-    }
-
 }
 
 // MARK: - HeaderViewDelegate
@@ -94,9 +96,8 @@ extension YearViewController: HeaderViewDelegate {
         } else {
             let previousYear = currentYear - 1
             currentYear = previousYear
-            years[previousYear] = Year(year: previousYear)
+            years.append(Year(year: previousYear))
             collectionView.reloadData()
-            print("AUA")
             collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
         }
@@ -106,7 +107,11 @@ extension YearViewController: HeaderViewDelegate {
 
 // MARK: - YearViewController
 extension YearViewController: YearViewDelegate {
-    func updateYears() {
-
+    func updateYears(with year: Year) {
+        years.append(year)
+        years.sort(by: { $0.year > $1.year })
+        collectionView.reloadData()
+        print("\(years.count)  count")
     }
+
 }

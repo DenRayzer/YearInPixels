@@ -10,6 +10,7 @@ import UIKit
 
 class YearCollectionViewCell: UICollectionViewCell {
     let scrollView = UIScrollView()
+    var year: Year?
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -26,7 +27,8 @@ class YearCollectionViewCell: UICollectionViewCell {
         for _ in 0...30 {
             for _ in 0...11 {
                 let day = UIView()
-                day.backgroundColor = .white
+                //  day.backgroundColor = .white
+                day.layer.backgroundColor = UIColor.lightGray.cgColor
                 day.layer.cornerRadius = 2
                 day.layer.borderWidth = 1
                 day.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
@@ -46,19 +48,32 @@ class YearCollectionViewCell: UICollectionViewCell {
     }
 
     func setSize() {
+        guard let year = year else { return }
         let margin = 3
         let widt = (Int(self.frame.width) - margin) / 12
-        print("width \(widt)")
         var count = 0
+        for i in 0...year.months.count - 1 {
 
-        for j in 0...30 {
-            for i in 0...11 {
-                scrollView.subviews[count].frame = CGRect(x: i * widt + margin, y: j * widt + margin,
+            let cow = year.months[i].count - 1
+            for j in 0...cow {
+                let day = scrollView.subviews[count]
+                day.frame = CGRect(x: i * widt + margin, y: j * widt + margin,
                     width: widt - margin, height: widt - margin)
+                let yearDay = year.months[i][j]
+                day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
                 count += 1
             }
         }
         scrollView.contentSize = CGSize(width: self.frame.width, height: CGFloat(widt) * 31 + CGFloat(margin))
     }
+
+    func setYear(year: Year) {
+        self.year = year
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = UIColor.clear
+    }
+
 
 }

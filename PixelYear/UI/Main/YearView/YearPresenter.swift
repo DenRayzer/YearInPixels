@@ -21,8 +21,23 @@ class YearViewPresenter {
         self.viewDelegate = viewDelegate
     }
 
-    func loadYears(from year: Int) {
+    func loadYear(yearNum: Int) {
+        service.getYear(year: yearNum) { result in
+            switch result {
+            case .success(let year):
+                DispatchQueue.main.async {
+                    self.viewDelegate?.updateYears(with: year)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
+    func loadYears(from year: Int, count: Int) {
+        for i in 0...count - 1 {
+            loadYear(yearNum: year - i)
+        }
     }
 
 }

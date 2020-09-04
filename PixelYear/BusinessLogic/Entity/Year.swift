@@ -10,16 +10,18 @@ import Foundation
 
 struct Year {
     let year: Int
-    var months: [[String]]
+    var months: [[Day]]
 
-    init(year: Int, months: [[String]] = [[]]) {
+    init(year: Int, months: [[Day]] = [[]]) {
         self.year = year
         if months.isEmpty {
-            var month: [[String]] = [[]]
-            for i in 1..<12 {
+            var month: [[Day]] = [[]]
+            for i in 1..<13 {
                 month.append([])
-                for _ in 1..<31 {
-                    month[i].append("0")
+                for j in 1..<31 {
+                    guard let date = YearMapper().makeDate(year: year, month: i, day: j) else { break }
+                    let day = Day(date: date, status: "0")
+                    month[i].append(day)
                 }
             }
             self.months = month
@@ -27,4 +29,5 @@ struct Year {
         }
         self.months = months
     }
+    
 }

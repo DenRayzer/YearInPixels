@@ -9,5 +9,5 @@
 import Foundation
 
 protocol YearViewDelegate: NSObjectProtocol {
-    func updateYears()
+    func updateYears(with year: Year)
 }

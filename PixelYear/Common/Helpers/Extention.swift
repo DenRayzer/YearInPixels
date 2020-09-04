@@ -70,5 +70,3 @@ extension StringProtocol {
         self[index(startIndex, offsetBy: offset)]
     }
 }
-
-
