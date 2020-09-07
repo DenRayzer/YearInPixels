@@ -32,7 +32,6 @@ class WebViewController: UIViewController {
                     self.webView.configuration.websiteDataStore.httpCookieStore.delete(cookie)
 
                 } else {
-
                     print("\(cookie.name) is set to \(cookie.value)")
                 }
             }
