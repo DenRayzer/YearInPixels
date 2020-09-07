@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebf-jD-XDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384" y="891"/>
+            <point key="canvasLocation" x="382.60869565217394" y="890.625"/>
         </scene>
         <!--График-->
         <scene sceneID="g29-aM-wMR">
@@ -243,7 +243,7 @@
                                     <outlet property="yearButton" destination="euE-D1-utg" id="Jix-Qp-r7B"/>
                                 </connections>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="243" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-z2-mdM">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="243" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-z2-mdM">
                                 <rect key="frame" x="5" y="147" width="404" height="666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="safeArea" id="I4e-zT-eKy"/>

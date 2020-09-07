@@ -69,7 +69,6 @@ extension WebViewController: WKNavigationDelegate {
             if !url.absoluteString.contains("code") { return }
                 //  clearCookie()
                 guard let code = url.valueOf("code") else {
-                    print("ретёрнуло 1")
                     return
                 }
 

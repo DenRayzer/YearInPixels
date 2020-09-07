@@ -8,21 +8,40 @@
 
 import Foundation
 
-protocol YearViewProtocol: class {
 
-}
+class YearViewPresenter {
+    private var service: Service
+    weak private var viewDelegate: YearViewDelegate?
 
-protocol YearPresenterProtocol: class {
+    init(service: Service = MandarinShowService()) {
+        self.service = service
+    }
 
-}
+    func setViewDelegate(viewDelegate: YearViewDelegate?) {
+        self.viewDelegate = viewDelegate
+    }
 
-class YearPresenter: YearPresenterProtocol {
-    private var mandarinShowService: Service
-    private let view: YearViewProtocol
+    func loadYear(yearNum: Int) {
+        service.getYear(year: yearNum) { result in
+            switch result {
+            case .success(let year):
+                DispatchQueue.main.async {
+                    self.viewDelegate?.updateYears(with: year)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
-    init(view: YearViewProtocol, service: Service = MandarinShowService()) {
-        self.mandarinShowService = service
-        self.view = view
+    func loadYears(from year: Int, count: Int) {
+        for i in 0...count - 1 {
+            loadYear(yearNum: year - i)
+        }
+    }
+
+    func setDay() {
+        service.setDay()
     }
 
 }

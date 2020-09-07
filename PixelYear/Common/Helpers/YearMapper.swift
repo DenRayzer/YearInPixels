@@ -29,16 +29,26 @@ class YearMapper {
            monthsString.append(yearModel.nov)
            monthsString.append(yearModel.dec)
 
-           var months: [[Int]] = []
+           var months: [[Day]] = []
 
-           for i in 0..<monthsString.count - 1 {
+           for i in 0..<monthsString.count {
                let month = monthsString[i]
                months.append([])
-               for j in 0..<30 {
-                   let day: Int = Int(String(month[j]))!
+            for j in 0..<monthsString[i].count {
+                guard let date = makeDate(year: year, month: i + 1, day: j + 1) else { break }
+                let day = Day(date: date, status: String(month[j]))
                    months[i].append(day)
                }
            }
            return Year(year: year, months: months)
     }
+
+    func makeDate(year: Int, month: Int, day: Int) -> Date? {
+           let formatter = DateFormatter()
+           formatter.dateFormat = "yyyy/MM/dd"
+
+        guard let date = formatter.date(from: "\(year)/\(month)/\(day)") else { return nil }
+           return date
+
+       }
 }
