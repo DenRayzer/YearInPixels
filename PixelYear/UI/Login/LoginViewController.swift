@@ -19,7 +19,6 @@ class LoginViewController: UIViewController{
     }
     
     @IBAction func mandarinShowLoginAction(_ sender: Any) {
-        print("tapped")
     }
 }
 
