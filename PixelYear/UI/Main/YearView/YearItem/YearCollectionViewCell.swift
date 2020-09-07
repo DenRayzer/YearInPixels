@@ -73,7 +73,7 @@ class YearCollectionViewCell: UICollectionViewCell {
     func setSize() {
         guard let year = year else { return }
         let margin = 3
-        let widt = (Int(self.frame.width) - margin) / 12
+        let widt = (Int(self.frame.width) + margin) / 12
         var count = 0
         for i in 0...year.months.count - 1 {
             let cow = year.months[i].count - 1
