@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E11E9CD2505945F00062089 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E11E9CC2505945F00062089 /* DayView.swift */; };
 		6E137B1424E006B6001737CE /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1324E006B6001737CE /* YearViewController.swift */; };
 		6E137B1624E00998001737CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1524E00998001737CE /* TabBarController.swift */; };
 		6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */; };
@@ -27,6 +28,7 @@
 		6EA700D324FD04C900CC64A5 /* YearViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700D224FD04C900CC64A5 /* YearViewDelegate.swift */; };
 		6EC64A5224EBDF0500824A4C /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */; };
 		6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5424EBDF6700824A4C /* YearMapper.swift */; };
+		6ECE689E250501E60054CC74 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECE689D250501E60054CC74 /* CustomTableViewCell.swift */; };
 		6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED142B124D41366000DD2FC /* WebViewController.swift */; };
 		6ED142B424D47D5C000DD2FC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED142B324D47D5C000DD2FC /* Login.storyboard */; };
 		6EDC988624E14BA700D1AB2D /* MandarinShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */; };
@@ -38,6 +40,7 @@
 /* Begin PBXFileReference section */
 		2F0F254B6F3BF8D8607B6516 /* Pods_PixelYear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelYear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33192D015D1034EBAFC1319F /* Pods-PixelYear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelYear.release.xcconfig"; path = "Target Support Files/Pods-PixelYear/Pods-PixelYear.release.xcconfig"; sourceTree = "<group>"; };
+		6E11E9CC2505945F00062089 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		6E137B1324E006B6001737CE /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		6E137B1524E00998001737CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		6EA700D224FD04C900CC64A5 /* YearViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewDelegate.swift; sourceTree = "<group>"; };
 		6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		6EC64A5424EBDF6700824A4C /* YearMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMapper.swift; sourceTree = "<group>"; };
+		6ECE689D250501E60054CC74 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6ED142B124D41366000DD2FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6ED142B324D47D5C000DD2FC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6EDC988524E14BA700D1AB2D /* MandarinShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarinShowService.swift; sourceTree = "<group>"; };
@@ -222,7 +226,6 @@
 				6E137B1324E006B6001737CE /* YearViewController.swift */,
 				6E655B6124E50E2300C336D0 /* YearPresenter.swift */,
 				6EA700D224FD04C900CC64A5 /* YearViewDelegate.swift */,
-				6EEB286A24FE81D80046D169 /* YearCollectionViewCell.swift */,
 			);
 			path = YearView;
 			sourceTree = "<group>";
@@ -238,6 +241,9 @@
 		6EDFF12B24EEB47C00511071 /* YearItem */ = {
 			isa = PBXGroup;
 			children = (
+				6ECE689D250501E60054CC74 /* CustomTableViewCell.swift */,
+				6EEB286A24FE81D80046D169 /* YearCollectionViewCell.swift */,
+				6E11E9CC2505945F00062089 /* DayView.swift */,
 			);
 			path = YearItem;
 			sourceTree = "<group>";
@@ -379,6 +385,8 @@
 				6EDC988824E14DE800D1AB2D /* NetworkHelper.swift in Sources */,
 				6E137B1424E006B6001737CE /* YearViewController.swift in Sources */,
 				6E50AB7D24C8DB920093FEAD /* PixelYear.xcdatamodeld in Sources */,
+				6E11E9CD2505945F00062089 /* DayView.swift in Sources */,
+				6ECE689E250501E60054CC74 /* CustomTableViewCell.swift in Sources */,
 				6E137B1624E00998001737CE /* TabBarController.swift in Sources */,
 				6E50AB7324C8DB920093FEAD /* AppDelegate.swift in Sources */,
 				6E2A2F6624E189DF00B62654 /* HeaderView.swift in Sources */,
