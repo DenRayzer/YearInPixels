@@ -22,7 +22,6 @@ class YearCollectionViewCell: UICollectionViewCell {
         let interItemSpacing: CGFloat = 2
         let rowSpacing: CGFloat = 1
         let width = (collectionView.frame.width - (12 * interItemSpacing)) / 13
-        print("width   \(width)")
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: width)
         layout.scrollDirection = .vertical
