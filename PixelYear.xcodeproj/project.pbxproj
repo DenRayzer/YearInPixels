@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E135CBB24F9984500E75956 /* UIButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */; };
 		6E137B1424E006B6001737CE /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1324E006B6001737CE /* YearViewController.swift */; };
 		6E137B1624E00998001737CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E137B1524E00998001737CE /* TabBarController.swift */; };
 		6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */; };
@@ -36,7 +37,9 @@
 		6E7D09FC24FC3C0200E6836A /* Data+AppendString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D09FB24FC3C0200E6836A /* Data+AppendString.swift */; };
 		6E96DB8624E3F51500BF99C9 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */; };
 		6E96DB8724E3F51500BF99C9 /* YearCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */; };
-		6EC64A5224EBDF0500824A4C /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5124EBDF0500824A4C /* CalendarService.swift */; };
+		6EA700CF24FCD97200CC64A5 /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700CE24FCD97200CC64A5 /* WebViewDelegate.swift */; };
+		6EA700D124FCDEF000CC64A5 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */; };
+		6EC64A5224EBDF0500824A4C /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */; };
 		6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5424EBDF6700824A4C /* YearMapper.swift */; };
 		6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED142B124D41366000DD2FC /* WebViewController.swift */; };
 		6ED142B424D47D5C000DD2FC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED142B324D47D5C000DD2FC /* Login.storyboard */; };
@@ -49,6 +52,7 @@
 /* Begin PBXFileReference section */
 		2F0F254B6F3BF8D8607B6516 /* Pods_PixelYear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PixelYear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33192D015D1034EBAFC1319F /* Pods-PixelYear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelYear.release.xcconfig"; path = "Target Support Files/Pods-PixelYear/Pods-PixelYear.release.xcconfig"; sourceTree = "<group>"; };
+		6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonWithShadow.swift; sourceTree = "<group>"; };
 		6E137B1324E006B6001737CE /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		6E137B1524E00998001737CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 		6E7D09FB24FC3C0200E6836A /* Data+AppendString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+AppendString.swift"; sourceTree = "<group>"; };
 		6E96DB8424E3F51500BF99C9 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E96DB8524E3F51500BF99C9 /* YearCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearCollectionViewCell.xib; sourceTree = "<group>"; };
-		6EC64A5124EBDF0500824A4C /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		6EA700CE24FCD97200CC64A5 /* WebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
+		6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
+		6EC64A5124EBDF0500824A4C /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		6EC64A5424EBDF6700824A4C /* YearMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMapper.swift; sourceTree = "<group>"; };
 		6ED142B124D41366000DD2FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6ED142B324D47D5C000DD2FC /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -119,25 +125,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6E3F8E7224EEBC0900F0A7A9 /* Endpoint */ = {
+		6E135CB924F9975800E75956 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				6E3CAF1524F0475800221196 /* MandarinShowLogin.swift */,
-				6EF4F73724F51C990098D72C /* MandarinShow.swift */,
+				6E135CBA24F9984500E75956 /* UIButtonWithShadow.swift */,
 			);
-			path = Endpoint;
-			sourceTree = "<group>";
-		};
-		6E3F8E7324EEBE2100F0A7A9 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				6E3CAF0224EFA39600221196 /* HTTPMethod.swift */,
-				6E3F8E7424EEBE5B00F0A7A9 /* EndpointType.swift */,
-				6E3CAF0424EFA7B600221196 /* HTTPTask.swift */,
-				6E3CAF1024EFF6F400221196 /* NetworkRouter.swift */,
-				6E3CAF1324EFF83C00221196 /* Router.swift */,
-			);
-			path = Service;
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		6E50AB6624C8DB920093FEAD = {
@@ -186,21 +179,19 @@
 			children = (
 				6ED142B324D47D5C000DD2FC /* Login.storyboard */,
 				6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */,
-				6ED142B124D41366000DD2FC /* WebViewController.swift */,
+				6EA700CD24FCD90A00CC64A5 /* MandarinShow */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		6E7D09F324FC3ABD00E6836A /* Extention */ = {
+		6EA700CD24FCD90A00CC64A5 /* MandarinShow */ = {
 			isa = PBXGroup;
 			children = (
-				6E74FDE524DD5FAE006D962F /* URLRequest+MultipartFormData.swift */,
-				6E7D09F424FC3B5C00E6836A /* URL+Components.swift */,
-				6E7D09F624FC3B8800E6836A /* StringProtocol+Subscript.swift */,
-				6E7D09F824FC3BB600E6836A /* Date+Component.swift */,
-				6E7D09FB24FC3C0200E6836A /* Data+AppendString.swift */,
+				6ED142B124D41366000DD2FC /* WebViewController.swift */,
+				6EA700CE24FCD97200CC64A5 /* WebViewDelegate.swift */,
+				6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */,
 			);
-			path = Extention;
+			path = MandarinShow;
 			sourceTree = "<group>";
 		};
 		6EC64A5324EBDF4700824A4C /* Helpers */ = {
@@ -227,6 +218,7 @@
 		6EDFF12324EEB1E400511071 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6E135CB924F9975800E75956 /* Elements */,
 				6E74FDE724DD71ED006D962F /* Login */,
 				6EDFF12824EEB38D00511071 /* Main */,
 			);
@@ -455,7 +447,7 @@
 				6EF4F73824F51C990098D72C /* MandarinShow.swift in Sources */,
 				6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */,
 				6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */,
-				6E7D09FC24FC3C0200E6836A /* Data+AppendString.swift in Sources */,
+				6EA700D124FCDEF000CC64A5 /* WebViewPresenter.swift in Sources */,
 				6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */,
 				6EFBDF9024F291DA009DE6EA /* MandarinShowLoginService.swift in Sources */,
 				6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */,
@@ -463,7 +455,9 @@
 				6E3CAF1124EFF6F400221196 /* NetworkRouter.swift in Sources */,
 				6EC64A5224EBDF0500824A4C /* CalendarService.swift in Sources */,
 				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
+				6EA700CF24FCD97200CC64A5 /* WebViewDelegate.swift in Sources */,
 				6E74FDE924DD737C006D962F /* YearModel.swift in Sources */,
+				6E135CBB24F9984500E75956 /* UIButtonWithShadow.swift in Sources */,
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6EF4F73A24F558B00098D72C /* MandarinShowService.swift in Sources */,
 				6E3F8E7524EEBE5B00F0A7A9 /* EndpointType.swift in Sources */,

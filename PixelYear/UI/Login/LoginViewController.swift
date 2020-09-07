@@ -15,6 +15,7 @@ class LoginViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     @IBAction func mandarinShowLoginAction(_ sender: Any) {
