@@ -13,17 +13,19 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
 
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
         do {
-            let request = try self.buildRequest(from: route)
+            guard let request = try self.buildRequest(from: route) else {
+                completion(nil, nil, APIError.badUrl)
+                return
+            }
             session.dataTask(with: request) { data, response, error in
                 completion(data, response, error)
-
             }.resume()
         } catch {
             completion(nil, nil, error)
         }
     }
 
-    func buildRequest(from route: EndPoint) throws -> URLRequest {
+    func buildRequest(from route: EndPoint) throws -> URLRequest? {
         let url = route.baseURL.appendingPathComponent(route.path)
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         request.httpMethod = route.httpMethod.rawValue
@@ -34,13 +36,12 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
                 try request.setMultipartFormData(parameters ?? [:])
             }
         case .requestParameters(let urlParameters):
-            if let params = urlParameters,
-                let newUrl = configureParameters(params, url: url) {
-                request.url = newUrl
+            if let params = urlParameters {
+                if let newUrl = configureParameters(params, url: url) {
+                    request.url = newUrl
+                } else { return nil }
             }
-            route.headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key)
-            }
-
+            route.headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
         }
         return request
     }
@@ -52,5 +53,4 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
         }
         return components.url
     }
-
 }

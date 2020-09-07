@@ -35,7 +35,7 @@ extension MandarinShow: EndpointType {
 
         case .setDay(let day):
             let year = day.date.get(.year)
-            return "year/\(year)/type/update"
+            return "\(year)/type/update"
         }
     }
 
@@ -49,8 +49,8 @@ extension MandarinShow: EndpointType {
             return .requestParameters(urlParameters: nil)
         case .setDay(let day):
             let yearString = String(day.date.get(.year))
-            let monthString = String(day.date.get(.month))
-            let dayString = String(day.date.get(.day))
+            let monthString = String(day.date.get(.month) - 1)
+            let dayString = String(day.date.get(.day) - 1)
             let params = [
                 MandarinShowKeys.yearParam: yearString,
                 MandarinShowKeys.monthParam: monthString,
@@ -63,8 +63,7 @@ extension MandarinShow: EndpointType {
 
     var headers: HTTPHeaders? {
         guard let token = SensitiveDataService().getMandarinShowToken() else { return nil }
-        return [MandarinShowKeys.authorizationParam: token]
+        return [MandarinShowKeys.authorizationParam: "Bearer \(token)"]
     }
-
 
 }

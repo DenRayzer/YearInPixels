@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum constant {
+enum Constant {
     static let newLine = "\r\n"
 }
 
@@ -21,17 +21,17 @@ extension URLRequest {
             parameters
                 .map { makeFormField(named: $0.key, value: $0.value, using: boundary) }
                 .forEach { body.append($0) }
-            body.append("--\(boundary)--\(constant.newLine)")
+            body.append("--\(boundary)--\(Constant.newLine)")
 
             return body
         }()
     }
 
     func makeFormField(named name: String, value: String, using boundary: String) -> String {
-        var fieldString = "--\(boundary)\(constant.newLine)"
-        fieldString += "Content-Disposition: form-data; name=\"\(name)\"\(constant.newLine)"
-        fieldString += constant.newLine
-        fieldString += value + constant.newLine
+        var fieldString = "--\(boundary)\(Constant.newLine)"
+        fieldString += "Content-Disposition: form-data; name=\"\(name)\"\(Constant.newLine)"
+        fieldString += Constant.newLine
+        fieldString += value + Constant.newLine
 
         return fieldString
     }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-class MandarinShowService: Manager {
-
+class MandarinShowService: CalendarService {
     let router: Router<MandarinShow>
     let mapper: YearMapper
 
@@ -18,34 +17,36 @@ class MandarinShowService: Manager {
         self.router = router
     }
 
-    func getYear(year: Int, completion: @escaping (Result<Year, Error>) -> Void) {
-        router.request(.getYear(year: year)) {
+    func getYear(yearDate: Int, completion: @escaping (Result<Year, Error>) -> Void) {
+        router.request(.getYear(year: yearDate)) {
             data, response, error in
             if let currentError = error {
                 completion(.failure(currentError))
             }
-            guard let resultData = data,
-                let yearsModels = try? JSONDecoder().decode([YearModel].self, from: resultData) else {
+            guard
+                let resultData = data,
+                let yearsModels = try? JSONDecoder().decode([YearModel].self, from: resultData),
+                let yearModel = yearsModels.first
+                else {
                     completion(.failure(APIError.resultParsingFailed))
                     return
             }
-            if !yearsModels.isEmpty {
-                guard let year = self.mapper.convertYearModel(yearModel: yearModel) else { return }
+            guard let year = self.mapper.convertYearModel(yearModel: yearModel) else {
+                completion(.failure(APIError.resultParsingFailed))
+                return
             }
-
             completion(.success(year))
         }
     }
 
-    func setDay(day: Day, completion: @escaping (Result<Data?, Error>) -> Void) {
+    func setDay(day: Day, completion: @escaping (Result<Void, Error>) -> Void) {
         router.request(.setDay(day: day)) {
             data, response, error in
             if let currentError = error {
                 completion(.failure(currentError))
             }
-            completion(.success(data))
+            completion(.success(Void()))
         }
     }
 
 }
-

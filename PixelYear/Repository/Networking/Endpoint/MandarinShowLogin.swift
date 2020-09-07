@@ -72,7 +72,6 @@ extension MandarinShowLogin: EndpointType {
                 MandarinShowLoginKeys.codeParam: code
             ]
             return .requestWithMultipartFormData(parameters: params)
-
         }
     }
 

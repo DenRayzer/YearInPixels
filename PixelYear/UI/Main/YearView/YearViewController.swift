@@ -23,12 +23,9 @@ class YearViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //   MandarinShowService().getYears(year: 2018)
         setupCollectionView()
         setUpCollectionViewItemSize()
-presenter = YearPresenter(view: self)
-       // if let year = presenter.getYear(year: currentYear) { years[year.year] = year }
-
+        presenter = YearPresenter(view: self)
     }
 
     func setupCollectionView() {
@@ -63,22 +60,15 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
-        print("\(indexPath.row) indexpath")
         if collectionView.contentOffset.x < CGPoint().x {
-
         }
-
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("didSelectItem at \(indexPath)")
     }
     func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        print("tak tak")
     }
-
-
 
 }
 
@@ -96,8 +86,6 @@ extension YearViewController: HeaderViewDelegate {
 
     func didTapPrevious() {
         let x = collectionView.contentOffset.x - collectionView.frame.width
-
-
         if x >= 0 {
             collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
         } else {
@@ -105,7 +93,6 @@ extension YearViewController: HeaderViewDelegate {
             currentYear = previousYear
             years[previousYear] = Year(year: previousYear)
             collectionView.reloadData()
-            print("AUA")
             collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
         }

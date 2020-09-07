@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CalendarService {
-    func getYear(year: Int, completion: @escaping (Result<Year, Error>) -> Void)
+    func getYear(yearDate: Int, completion: @escaping (Result<Year, Error>) -> Void)
     func setDay(day: Day, completion: @escaping (Result<Void, Error>) -> Void)
 }
