@@ -9,13 +9,15 @@
 import UIKit
 
 class YearCollectionViewCell: UICollectionViewCell {
-    let scrollView = UIScrollView()
-    var year: Year?
-    var tableView = UITableView()
-    var selectedItem = DayView()
-    var dayLabelIndexPath: IndexPath?
-    var color = ["0", "6", "5", "4", "3", "2", "1"]
-    var option = ["Нет данных", "Отличный", "Хороший", "Обычный", "Плохой", "Болею", "Устал"]
+    private let scrollView = UIScrollView()
+    private var year: Year?
+    private var tableView = UITableView()
+    private var selectedItem = DayView()
+    private var dayLabelIndexPath: IndexPath?
+    private var color = ["0", "6", "5", "4", "3", "2", "1"]
+    private var option = ["Нет данных", "Отличный", "Хороший", "Обычный", "Плохой", "Болею", "Устал"]
+    private var panelHeight: CGFloat = 250
+    private let presenter = YearViewPresenter()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -54,20 +56,17 @@ class YearCollectionViewCell: UICollectionViewCell {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         if let tapped = sender.view {
             selectedItem = tapped as! DayView
-            let components = selectedItem.day?.date.get(.day, .month, .year)
-            let day = components?.day
-            let month = components?.month
-            let year = components?.year
-            let dayString = "\(day ?? -1).\(month ?? -1).\(year ?? -1)"
-            if(dayLabelIndexPath != nil) {
-                let firstCell = tableView.cellForRow(at: dayLabelIndexPath!) as? CustomTableViewCell
-                firstCell?.dateLabel.text = dayString
+            let dayString = CalendarHelper.getDateString(for: selectedItem.day.date)
+            if let indexpath = dayLabelIndexPath,
+                let firstCell = tableView.cellForRow(at: indexpath) as? CustomTableViewCell {
+                firstCell.dateLabel.text = dayString
             }
+            panelHeight = tableView.contentSize.height
             let window = UIApplication.shared.keyWindow
             let screenSize = UIScreen.main.bounds.size
-            tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: 250)
+            tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: panelHeight)
             window?.addSubview(tableView)
-            tableViewAnimation(with: screenSize.height - 250 - 180)
+            tableViewAnimation(with: screenSize.height - panelHeight - 50)
         }
     }
 
@@ -103,7 +102,7 @@ class YearCollectionViewCell: UICollectionViewCell {
         let screenSize = UIScreen.main.bounds.size
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0,
             options: .curveEaseInOut, animations: {
-                self.tableView.frame = CGRect(x: 0, y: y, width: screenSize.width, height: 500)
+                self.tableView.frame = CGRect(x: 0, y: y, width: screenSize.width, height: self.panelHeight * 2)
             })
     }
 
@@ -120,8 +119,9 @@ extension YearCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
         }
         if indexPath.row == 0 {
             dayLabelIndexPath = indexPath
+            cell.dateLabel.frame = CGRect(x: 15, y: 10, width: self.frame.width - 80, height: 30)
             if let date = selectedItem.day?.date {
-                cell.dateLabel.text = getDateString(for: date)
+                cell.dateLabel.text = CalendarHelper.getDateString(for: date)
             }
             cell.dateLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         } else {
@@ -133,14 +133,6 @@ extension YearCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
             cell.addSubview(view)
         }
         return cell
-    }
-
-    func getDateString(for date: Date) -> String {
-        let components = date.get(.day, .month, .year)
-        let day = components.day
-        let month = components.month
-        let year = components.year
-        return "\(day!).\(month!).\(year!)"
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

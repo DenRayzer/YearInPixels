@@ -9,7 +9,7 @@
 import UIKit
 
 class DayView: UIView {
-    var day: Day?
+    var day: Day!
 
     override init(frame: CGRect) {
         super.init(frame: frame)

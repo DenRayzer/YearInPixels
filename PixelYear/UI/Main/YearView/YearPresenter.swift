@@ -40,4 +40,8 @@ class YearViewPresenter {
         }
     }
 
+    func setDay() {
+        service.setDay()
+    }
+
 }
