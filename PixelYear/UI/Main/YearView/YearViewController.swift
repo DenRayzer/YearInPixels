@@ -13,7 +13,9 @@ class YearViewController: UIViewController {
     private var collectionViewFlowLayout: UICollectionViewFlowLayout! = nil
     private var currentYear = Calendar.current.component(.year, from: Date())
     private var years: [Year] = []
+    private var currentYearIndexPath = IndexPath()
     private var presenter = YearViewPresenter()
+    private var lastContentOffset: CGFloat = 0
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var header: HeaderView! {
         didSet {
@@ -24,7 +26,7 @@ class YearViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.setViewDelegate(viewDelegate: self)
-        presenter.loadYears(from: currentYear, count: 6)
+        presenter.loadYears(from: currentYear, count: 10)
         setupCollectionView()
         setUpCollectionViewItemSize()
     }
@@ -59,21 +61,26 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
-        cell.setYear(year: years[indexPath.row])
+        currentYearIndexPath = indexPath
+        cell.setYear(year: years[currentYearIndexPath.row])
         cell.setSize()
-
+        print("year \(years[currentYearIndexPath.row].year)")
         return cell
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         for cell in collectionView.visibleCells {
             let indexPath = collectionView.indexPath(for: cell)
-            if indexPath?.row == years.count - 1 {
-                presenter.loadYears(from: years[years.count - 1].year - 1, count: 3)
+            if currentYear - years[indexPath!.row].year > 0 && indexPath?.row != years.count - 1 {
+                currentYear -= 1
             }
-            print("\(indexPath!.row)  ///")
+            if currentYear - years[indexPath!.row].year < 0 {
+                currentYear += 1
+            }
+            header.updateYearButton(year: currentYear)
         }
     }
+
 }
 
 // MARK: - HeaderViewDelegate
@@ -81,7 +88,7 @@ extension YearViewController: HeaderViewDelegate {
     func didTapNext() {
         let x = collectionView.contentOffset.x + collectionView.frame.width
         guard x < collectionView.contentSize.width else { return }
-
+        currentYearIndexPath.row += 1
         collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
         currentYear += 1
         header.updateYearButton(year: currentYear)
@@ -89,15 +96,13 @@ extension YearViewController: HeaderViewDelegate {
 
     func didTapPrevious() {
         let x = collectionView.contentOffset.x - collectionView.frame.width
-
-
         if x >= 0 {
             collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
         } else {
             let previousYear = currentYear - 1
             currentYear = previousYear
+            currentYearIndexPath.row -= 1
             years.append(Year(year: previousYear))
-            collectionView.reloadData()
             collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
         }
@@ -111,7 +116,6 @@ extension YearViewController: YearViewDelegate {
         years.append(year)
         years.sort(by: { $0.year > $1.year })
         collectionView.reloadData()
-        print("\(years.count)  count")
     }
 
 }
