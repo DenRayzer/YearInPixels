@@ -56,7 +56,7 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.allow)
             guard let url = navigationAction.request.url else { return }
             if !url.absoluteString.contains("code") { return }
-            //  clearCookie()
+             // clearCookie()
             guard let code = url.valueOf("code") else { return }
             presenter.getAccessToken(with: code)
         }
@@ -65,7 +65,7 @@ extension WebViewController: WKNavigationDelegate {
 }
 
 // MARK: - WebViewDelegate extention
-extension WebViewController: WebViewDelegate {
+extension WebViewController: PresenterDelegate {
     func openWebSite(with request: URLRequest) {
         webView.load(request)
     }
