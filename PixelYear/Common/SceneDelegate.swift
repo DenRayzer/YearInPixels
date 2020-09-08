@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             storyboardName = "Login"
         }
-
         let storyboard = UIStoryboard(name: storyboardName, bundle: .main)
 
         if let initialViewController = storyboard.instantiateInitialViewController() {

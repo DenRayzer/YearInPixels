@@ -57,20 +57,22 @@ class YearCollectionViewCell: UICollectionViewCell {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         if let tapped = sender.view {
             selectedItem = tapped as! DayView
-            let dayString = CalendarHelper.getDateString(for: selectedItem.day.date)
-            if let indexpath = dayLabelIndexPath,
-                let firstCell = tableView.cellForRow(at: indexpath) as? CustomTableViewCell {
-                firstCell.dateLabel.text = dayString
-            }
-            let window = UIApplication.shared.keyWindow
-            let screenSize = UIScreen.main.bounds.size
-            let height = screenSize.height/4
-            tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: height)
-            window?.addSubview(tableView)
+            if selectedItem.day.date < Date() {
+                let dayString = CalendarHelper.getDateString(for: selectedItem.day.date)
+                if let indexpath = dayLabelIndexPath,
+                    let firstCell = tableView.cellForRow(at: indexpath) as? CustomTableViewCell {
+                    firstCell.dateLabel.text = dayString
+                }
+                let window = UIApplication.shared.keyWindow
+                let screenSize = UIScreen.main.bounds.size
+                let height = screenSize.height / 4
+                tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: height)
+                window?.addSubview(tableView)
 
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-                self.tableView.frame = CGRect(x: 0, y: screenSize.height - height - 180, width: screenSize.width, height: 500)
-            })
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                    self.tableView.frame = CGRect(x: 0, y: screenSize.height - height - 180, width: screenSize.width, height: 500)
+                })
+            }
         }
     }
 
@@ -86,7 +88,13 @@ class YearCollectionViewCell: UICollectionViewCell {
                 day.setDay(day: year.months[i][j])
                 day.frame = CGRect(x: i * width + margin, y: j * width + margin, width: width - margin, height: width - margin)
                 let yearDay = year.months[i][j]
-                day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
+                if year.months[i][j].date > Date() {
+                    print(" \(year.months[i][j].date)  hhhhh  \(Date())   ")
+                    day.layer.backgroundColor = UIColor(named: "none")?.cgColor
+                  //  day.layer.borderWidth = 0
+                } else {
+                     day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
+                }
                 count += 1
             }
         }

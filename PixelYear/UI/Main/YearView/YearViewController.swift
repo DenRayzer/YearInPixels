@@ -98,7 +98,7 @@ extension YearViewController: HeaderViewDelegate {
     }
 }
 
-// MARK: - YearViewController
+// MARK: - YearPresenterDelegate
 extension YearViewController: YearPresenterDelegate {
     func updateYears(with year: Year) {
         years.append(year)
@@ -108,6 +108,7 @@ extension YearViewController: YearPresenterDelegate {
 
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension YearViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
