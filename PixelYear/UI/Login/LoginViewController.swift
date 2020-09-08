@@ -9,14 +9,14 @@
 import UIKit
 import SafariServices
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func mandarinShowLoginAction(_ sender: Any) {
     }
 }

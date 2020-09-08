@@ -42,7 +42,6 @@ class MandarinShowService: CalendarService {
     func setDay(day: Day, completion: @escaping (Result<Void, Error>) -> Void) {
         router.request(.setDay(day: day)) {
             data, response, error in
-            print(response)
             if let currentError = error {
                 completion(.failure(currentError))
             }

@@ -99,7 +99,7 @@ extension YearViewController: HeaderViewDelegate {
 }
 
 // MARK: - YearViewController
-extension YearViewController: YearViewDelegate {
+extension YearViewController: YearPresenterDelegate {
     func updateYears(with year: Year) {
         years.append(year)
         years.sort(by: { $0.year > $1.year })

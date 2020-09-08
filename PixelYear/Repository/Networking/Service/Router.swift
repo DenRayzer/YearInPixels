@@ -49,12 +49,6 @@ class Router<EndPoint: EndpointType>: NetworkRouter {
     private func configureParameters(_ urlParameters: [(String, String)], url: URL) -> URL? {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return nil }
         components.queryItems = []
-
-//        for i in urlParameters {
-//            print ("key \(i.key) \(i.value)  ")
-//            let item = URLQueryItem(name: i.key, value: i.value)
-//            components.queryItems?.append(item)
-//        }
         components.queryItems = urlParameters.map { key, value in
             URLQueryItem(name: key, value: value)
         }

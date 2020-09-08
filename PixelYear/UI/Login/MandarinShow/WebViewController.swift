@@ -21,6 +21,7 @@ class WebViewController: UIViewController {
         presenter.displayWebSite()
     }
 
+// need for login tests
     func clearCookie() {
         webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
             for cookie in cookies {
@@ -56,7 +57,7 @@ extension WebViewController: WKNavigationDelegate {
             decisionHandler(.allow)
             guard let url = navigationAction.request.url else { return }
             if !url.absoluteString.contains("code") { return }
-             // clearCookie()
+            // clearCookie()
             guard let code = url.valueOf("code") else { return }
             presenter.getAccessToken(with: code)
         }

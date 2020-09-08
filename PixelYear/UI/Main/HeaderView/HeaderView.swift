@@ -37,11 +37,9 @@ class HeaderView: UIView {
     }
 
     @IBAction func previousButtonAction(_ sender: Any) {
-        print("prev")
         delegate?.didTapPrevious()
     }
     @IBAction func nextButtonAction(_ sender: Any) {
-        print("next")
         delegate?.didTapNext()
     }
 

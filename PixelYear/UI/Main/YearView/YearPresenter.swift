@@ -10,13 +10,13 @@ import Foundation
 
 class YearViewPresenter {
     private var service: CalendarService
-    weak private var viewDelegate: YearViewDelegate?
+    weak private var viewDelegate: YearPresenterDelegate?
 
     init(service: CalendarService = MandarinShowService()) {
         self.service = service
     }
 
-    func setViewDelegate(viewDelegate: YearViewDelegate?) {
+    func setViewDelegate(viewDelegate: YearPresenterDelegate?) {
         self.viewDelegate = viewDelegate
     }
 
