@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol PresenterDelegate: NSObjectProtocol {
+protocol WebViewPesenterDelegate: NSObjectProtocol {
     func openWebSite(with request: URLRequest)
     func presentMain()
 }

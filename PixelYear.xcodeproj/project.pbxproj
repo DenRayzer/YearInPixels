@@ -28,7 +28,7 @@
 		6E14D43C2507830C00339A32 /* YearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D43B2507830C00339A32 /* YearCollectionViewCell.swift */; };
 		6E14D43E2507833900339A32 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D43D2507833900339A32 /* CustomTableViewCell.swift */; };
 		6E14D4402507834F00339A32 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D43F2507834F00339A32 /* DayView.swift */; };
-		6E14D443250783AF00339A32 /* YearViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D442250783AF00339A32 /* YearViewDelegate.swift */; };
+		6E14D443250783AF00339A32 /* YearPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D442250783AF00339A32 /* YearPresenterDelegate.swift */; };
 		6E14D4452507856000339A32 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E14D4442507856000339A32 /* CalendarHelper.swift */; };
 		6E19DEBE24D1A1000036DBD9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */; };
 		6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F5E24E17C0F00B62654 /* Year.swift */; };
@@ -43,7 +43,7 @@
 		6E655B6224E50E2300C336D0 /* YearPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E655B6124E50E2300C336D0 /* YearPresenter.swift */; };
 		6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE324DC1514006D962F /* SensitiveDataService.swift */; };
 		6E74FDE924DD737C006D962F /* YearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E74FDE824DD737C006D962F /* YearModel.swift */; };
-		6EA700CF24FCD97200CC64A5 /* PresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700CE24FCD97200CC64A5 /* PresenterDelegate.swift */; };
+		6EA700CF24FCD97200CC64A5 /* WebViewPesenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700CE24FCD97200CC64A5 /* WebViewPesenterDelegate.swift */; };
 		6EA700D124FCDEF000CC64A5 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */; };
 		6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC64A5424EBDF6700824A4C /* YearMapper.swift */; };
 		6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED142B124D41366000DD2FC /* WebViewController.swift */; };
@@ -75,7 +75,7 @@
 		6E14D43B2507830C00339A32 /* YearCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E14D43D2507833900339A32 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		6E14D43F2507834F00339A32 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
-		6E14D442250783AF00339A32 /* YearViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewDelegate.swift; sourceTree = "<group>"; };
+		6E14D442250783AF00339A32 /* YearPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPresenterDelegate.swift; sourceTree = "<group>"; };
 		6E14D4442507856000339A32 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		6E19DEBD24D1A1000036DBD9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E2A2F5E24E17C0F00B62654 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		6E655B6124E50E2300C336D0 /* YearPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPresenter.swift; sourceTree = "<group>"; };
 		6E74FDE324DC1514006D962F /* SensitiveDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitiveDataService.swift; sourceTree = "<group>"; };
 		6E74FDE824DD737C006D962F /* YearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearModel.swift; sourceTree = "<group>"; };
-		6EA700CE24FCD97200CC64A5 /* PresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterDelegate.swift; sourceTree = "<group>"; };
+		6EA700CE24FCD97200CC64A5 /* WebViewPesenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPesenterDelegate.swift; sourceTree = "<group>"; };
 		6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		6EC64A5424EBDF6700824A4C /* YearMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMapper.swift; sourceTree = "<group>"; };
 		6ED142B124D41366000DD2FC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				6ED142B124D41366000DD2FC /* WebViewController.swift */,
-				6EA700CE24FCD97200CC64A5 /* PresenterDelegate.swift */,
+				6EA700CE24FCD97200CC64A5 /* WebViewPesenterDelegate.swift */,
 				6EA700D024FCDEF000CC64A5 /* WebViewPresenter.swift */,
 			);
 			path = MandarinShow;
@@ -325,7 +325,7 @@
 				6E14D43A250782F700339A32 /* YearItem */,
 				6E137B1324E006B6001737CE /* YearViewController.swift */,
 				6E655B6124E50E2300C336D0 /* YearPresenter.swift */,
-				6E14D442250783AF00339A32 /* YearViewDelegate.swift */,
+				6E14D442250783AF00339A32 /* YearPresenterDelegate.swift */,
 			);
 			path = YearView;
 			sourceTree = "<group>";
@@ -474,7 +474,7 @@
 			files = (
 				6E14D41C2507786100339A32 /* HTTPTask.swift in Sources */,
 				6E14D4042507736F00339A32 /* URLRequest+MultipartFormData.swift in Sources */,
-				6E14D443250783AF00339A32 /* YearViewDelegate.swift in Sources */,
+				6E14D443250783AF00339A32 /* YearPresenterDelegate.swift in Sources */,
 				6E137B1424E006B6001737CE /* YearViewController.swift in Sources */,
 				6E14D4202507789A00339A32 /* Router.swift in Sources */,
 				6E50AB7D24C8DB920093FEAD /* PixelYear.xcdatamodeld in Sources */,
@@ -499,7 +499,7 @@
 				6ED142B224D41366000DD2FC /* WebViewController.swift in Sources */,
 				6E14D43C2507830C00339A32 /* YearCollectionViewCell.swift in Sources */,
 				6E2A2F6124E17C8200B62654 /* Day.swift in Sources */,
-				6EA700CF24FCD97200CC64A5 /* PresenterDelegate.swift in Sources */,
+				6EA700CF24FCD97200CC64A5 /* WebViewPesenterDelegate.swift in Sources */,
 				6E74FDE924DD737C006D962F /* YearModel.swift in Sources */,
 				6E14D40A250773BB00339A32 /* Date+Component.swift in Sources */,
 				6E14D41E2507788200339A32 /* NetworkRouter.swift in Sources */,

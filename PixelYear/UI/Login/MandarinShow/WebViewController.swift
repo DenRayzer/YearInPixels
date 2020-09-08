@@ -65,7 +65,7 @@ extension WebViewController: WKNavigationDelegate {
 }
 
 // MARK: - WebViewDelegate extention
-extension WebViewController: PresenterDelegate {
+extension WebViewController: WebViewPesenterDelegate {
     func openWebSite(with request: URLRequest) {
         webView.load(request)
     }

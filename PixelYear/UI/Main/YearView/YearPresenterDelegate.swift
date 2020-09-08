@@ -9,6 +9,6 @@
 import Foundation
 
 
-protocol YearViewDelegate: NSObjectProtocol {
+protocol YearPresenterDelegate: NSObjectProtocol {
     func updateYears(with year: Year)
 }

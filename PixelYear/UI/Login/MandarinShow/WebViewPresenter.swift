@@ -11,13 +11,13 @@ import Foundation
 
 class WebViewPresenter {
     private var service: MandarinShowLoginService
-    weak private var viewDelegate: PresenterDelegate!
+    weak private var viewDelegate: WebViewPesenterDelegate!
 
     init(service: MandarinShowLoginService = MandarinShowLoginService()) {
         self.service = service
     }
 
-    func setViewDelegate(viewDelegate: PresenterDelegate) {
+    func setViewDelegate(viewDelegate: WebViewPesenterDelegate) {
         self.viewDelegate = viewDelegate
     }
 
