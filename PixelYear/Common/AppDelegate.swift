@@ -9,12 +9,16 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let notificationsHelper = NotificationsHelper()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        notificationsHelper.userRequest()
+        notificationsHelper.scheduleNotification()
 
         return true
     }

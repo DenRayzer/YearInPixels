@@ -34,6 +34,8 @@
 		6E2A2F5F24E17C0F00B62654 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F5E24E17C0F00B62654 /* Year.swift */; };
 		6E2A2F6124E17C8200B62654 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F6024E17C8200B62654 /* Day.swift */; };
 		6E2A2F6624E189DF00B62654 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2A2F6524E189DF00B62654 /* HeaderView.swift */; };
+		6E41C70125265CEA00ED586D /* PermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41C70025265CEA00ED586D /* PermissionStatus.swift */; };
+		6E41C703252669B400ED586D /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E41C702252669B400ED586D /* NotificationsHelper.swift */; };
 		6E50AB7324C8DB920093FEAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7224C8DB920093FEAD /* AppDelegate.swift */; };
 		6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */; };
 		6E50AB7A24C8DB920093FEAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E50AB7824C8DB920093FEAD /* Main.storyboard */; };
@@ -81,6 +83,8 @@
 		6E2A2F5E24E17C0F00B62654 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		6E2A2F6024E17C8200B62654 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		6E2A2F6524E189DF00B62654 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		6E41C70025265CEA00ED586D /* PermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionStatus.swift; sourceTree = "<group>"; };
+		6E41C702252669B400ED586D /* NotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
 		6E50AB6F24C8DB920093FEAD /* PixelYear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelYear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E50AB7224C8DB920093FEAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E50AB7424C8DB920093FEAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +194,14 @@
 			path = YearItem;
 			sourceTree = "<group>";
 		};
+		6E41C6FF25265C4D00ED586D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				6E41C70025265CEA00ED586D /* PermissionStatus.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		6E50AB6624C8DB920093FEAD = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +267,7 @@
 			children = (
 				6EC64A5424EBDF6700824A4C /* YearMapper.swift */,
 				6E14D4442507856000339A32 /* CalendarHelper.swift */,
+				6E41C702252669B400ED586D /* NotificationsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -262,6 +275,7 @@
 		6EDFF12224EEB1CE00511071 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6E41C6FF25265C4D00ED586D /* Enums */,
 				6E14D4022507735500339A32 /* Extension */,
 				6EC64A5324EBDF4700824A4C /* Helpers */,
 				6E50AB7224C8DB920093FEAD /* AppDelegate.swift */,
@@ -489,6 +503,7 @@
 				6E14D4402507834F00339A32 /* DayView.swift in Sources */,
 				6E14D424250778DD00339A32 /* MandarinShow.swift in Sources */,
 				6E2A2F6624E189DF00B62654 /* HeaderView.swift in Sources */,
+				6E41C703252669B400ED586D /* NotificationsHelper.swift in Sources */,
 				6E14D4182507781E00339A32 /* HTTPMethod.swift in Sources */,
 				6E14D4082507739C00339A32 /* StringProtocol+Subscript.swift in Sources */,
 				6E14D43E2507833900339A32 /* CustomTableViewCell.swift in Sources */,
@@ -508,6 +523,7 @@
 				6E50AB7524C8DB920093FEAD /* SceneDelegate.swift in Sources */,
 				6E14D4062507738300339A32 /* URL+Components.swift in Sources */,
 				6E74FDE424DC1514006D962F /* SensitiveDataService.swift in Sources */,
+				6E41C70125265CEA00ED586D /* PermissionStatus.swift in Sources */,
 				6EC64A5524EBDF6700824A4C /* YearMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

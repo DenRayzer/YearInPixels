@@ -89,9 +89,7 @@ class YearCollectionViewCell: UICollectionViewCell {
                 day.frame = CGRect(x: i * width + margin, y: j * width + margin, width: width - margin, height: width - margin)
                 let yearDay = year.months[i][j]
                 if year.months[i][j].date > Date() {
-                    print(" \(year.months[i][j].date)  hhhhh  \(Date())   ")
                     day.layer.backgroundColor = UIColor(named: "none")?.cgColor
-                  //  day.layer.borderWidth = 0
                 } else {
                      day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
                 }
