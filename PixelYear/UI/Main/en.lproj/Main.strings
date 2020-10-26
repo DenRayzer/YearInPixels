@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "2020 год"; ObjectID = "1Az-24-5ay"; */
+"1Az-24-5ay.normalTitle" = "2020 year";
+
+/* Class = "UILabel"; text = "Окт"; ObjectID = "4Oa-4f-x9I"; */
+"4Oa-4f-x9I.text" = "Oct";
+
+/* Class = "UILabel"; text = "Ноя"; ObjectID = "4XZ-9A-zEE"; */
+"4XZ-9A-zEE.text" = "Nov";
+
+/* Class = "UITabBarItem"; title = "Месяц"; ObjectID = "CYd-ag-9et"; */
+"CYd-ag-9et.title" = "Month";
+
+/* Class = "UILabel"; text = "Янв"; ObjectID = "D2Z-6D-KzP"; */
+"D2Z-6D-KzP.text" = "Jan";
+
+/* Class = "UILabel"; text = "Апр"; ObjectID = "NxX-yg-JtT"; */
+"NxX-yg-JtT.text" = "Apr";
+
+/* Class = "UITabBarItem"; title = "Год"; ObjectID = "XMt-J2-ugF"; */
+"XMt-J2-ugF.title" = "Year";
+
+/* Class = "UILabel"; text = "Сен"; ObjectID = "XbH-lK-CHz"; */
+"XbH-lK-CHz.text" = "Sep";
+
+/* Class = "UILabel"; text = "Мар"; ObjectID = "Xsd-js-1fw"; */
+"Xsd-js-1fw.text" = "Mar";
+
+/* Class = "UILabel"; text = "Июл"; ObjectID = "Ypu-P0-Bbe"; */
+"Ypu-P0-Bbe.text" = "Jul";
+
+/* Class = "UILabel"; text = "Фев"; ObjectID = "eao-4G-i5h"; */
+"eao-4G-i5h.text" = "Feb";
+
+/* Class = "UILabel"; text = "Авг"; ObjectID = "fVz-ZR-ZTB"; */
+"fVz-ZR-ZTB.text" = "Aug";
+
+/* Class = "UILabel"; text = "Июн"; ObjectID = "g72-ak-ZZ8"; */
+"g72-ak-ZZ8.text" = "Jun";
+
+/* Class = "UILabel"; text = "Дек"; ObjectID = "r7c-p0-UKK"; */
+"r7c-p0-UKK.text" = "Dec";
+
+/* Class = "UILabel"; text = "Май"; ObjectID = "tuJ-Eg-CTN"; */
+"tuJ-Eg-CTN.text" = "May";
