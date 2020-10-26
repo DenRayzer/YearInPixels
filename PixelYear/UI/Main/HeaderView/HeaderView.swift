@@ -44,7 +44,7 @@ class HeaderView: UIView {
     }
 
     func updateYearButton(year: Int) {
-        yearButton.setTitle(String(year), for: .normal)
+        yearButton.setTitle(String(year) + " year", for: .normal)
     }
 
     required init?(coder aDecoder: NSCoder) {

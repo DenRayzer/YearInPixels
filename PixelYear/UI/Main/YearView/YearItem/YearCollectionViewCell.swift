@@ -11,7 +11,7 @@ import UIKit
 
 class YearCollectionViewCell: UICollectionViewCell {
     private let scrollView = UIScrollView()
-    private var year: Year?
+    var year: Year?
     private var tableView = UITableView()
     private var selectedItem = DayView()
     private var dayLabelIndexPath: IndexPath?
@@ -91,7 +91,7 @@ class YearCollectionViewCell: UICollectionViewCell {
                 if year.months[i][j].date > Date() {
                     day.layer.backgroundColor = UIColor(named: "none")?.cgColor
                 } else {
-                     day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
+                    day.layer.backgroundColor = UIColor(named: yearDay.status)?.cgColor
                 }
                 count += 1
             }

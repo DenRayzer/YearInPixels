@@ -56,12 +56,21 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! YearCollectionViewCell
         currentYearIndexPath = indexPath
-        cell.setYear(year: years[currentYearIndexPath.row])
+        let year = years[currentYearIndexPath.row]
+        cell.setYear(year: year)
         cell.setSize()
         return cell
     }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("work2")
+    }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("work")
+    }
+
+    func setCurrentYearName () {
         for cell in collectionView.visibleCells {
             let indexPath = collectionView.indexPath(for: cell)
             if currentYear - years[indexPath!.row].year > 0 {
@@ -76,26 +85,27 @@ extension YearViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 }
 
+
+
 // MARK: - HeaderViewDelegate
 extension YearViewController: HeaderViewDelegate {
 
     func didTapNext() {
-        let x = collectionView.contentOffset.x + collectionView.frame.width
-       if x >= collectionView.contentSize.width { return }
-        collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
-        currentYear += 1
-        header.updateYearButton(year: currentYear)
-
+        var currentIndexpath = collectionView.indexPathsForVisibleItems[0]
+        if currentIndexpath.row > 0 {
+            currentIndexpath.row -= 1
+            collectionView.scrollToItem(at: currentIndexpath, at: UICollectionView.ScrollPosition.left, animated: true)
+        }
     }
 
     func didTapPrevious() {
-        let x = collectionView.contentOffset.x - collectionView.frame.width
-        if x >= 0 {
-            collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
-            currentYear -= 1
-            header.updateYearButton(year: currentYear)
+        var currentIndexpath = collectionView.indexPathsForVisibleItems[0]
+        currentIndexpath.row += 1
+        if currentIndexpath.row < collectionView.numberOfItems(inSection: 0) {
+            collectionView.scrollToItem(at: currentIndexpath, at: UICollectionView.ScrollPosition.left, animated: true)
         }
     }
+
 }
 
 // MARK: - YearPresenterDelegate

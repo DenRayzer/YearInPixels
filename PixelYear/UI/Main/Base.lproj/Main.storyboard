@@ -10,7 +10,6 @@
         <!--Месяц-->
         <scene sceneID="PUG-wt-MFJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ebf-jD-XDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="uGR-rx-thP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ful-rq-KHL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -41,6 +40,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Месяц" image="tortoise.fill" catalog="system" selectedImage="tortoise" id="CYd-ag-9et"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebf-jD-XDN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="381.15942028985512" y="889.95535714285711"/>
         </scene>
@@ -68,9 +68,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Az-24-5ay">
-                                        <rect key="frame" x="171" y="15" width="72" height="33"/>
+                                        <rect key="frame" x="128" y="15" width="158" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="2020 год">
+                                        <state key="normal" title="2020 годdfddddddd">
                                             <color key="titleColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                     </button>
